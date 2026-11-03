@@ -29,6 +29,6 @@ setup(
         'console_scripts': [
             'vision_node = tsb_cv_brain.vision_node:main',
             'image_publisher = tsb_cv_brain.image_publisher:main',
-        ],
+            'canvas_bridge = tsb_cv_brain.canvas_bridge:main',        ],
     },
 )
