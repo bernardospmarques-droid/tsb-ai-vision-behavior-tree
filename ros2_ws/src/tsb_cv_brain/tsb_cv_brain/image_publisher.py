@@ -1,10 +1,10 @@
 """Publish an image file as a ROS sensor_msgs/Image message."""
 
-from pathlib import Path
 import time
+from pathlib import Path
 
-from PIL import Image as PillowImage
 import rclpy
+from PIL import Image as PillowImage
 from rclpy.node import Node
 from sensor_msgs.msg import Image
 

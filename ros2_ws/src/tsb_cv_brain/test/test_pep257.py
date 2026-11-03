@@ -1,5 +1,5 @@
-from ament_pep257.main import main
 import pytest
+from ament_pep257.main import main
 
 
 @pytest.mark.linter

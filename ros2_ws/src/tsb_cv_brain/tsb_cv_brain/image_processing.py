@@ -7,7 +7,6 @@ import torch
 from sensor_msgs.msg import Image
 from torch.nn import functional as functional
 
-
 SUPPORTED_ENCODINGS = {
     "rgb8",
     "bgr8",
