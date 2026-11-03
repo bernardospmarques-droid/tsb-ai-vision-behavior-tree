@@ -1,7 +1,6 @@
 // bt_executor: loads a BehaviorTree.CPP v4 tree from XML and ticks it,
 // giving the tree's action nodes access to a shared rclcpp::Node.
 
-#include <chrono>
 #include <memory>
 #include <string>
 #include <thread>
@@ -16,7 +15,6 @@
 #include "tsb_bt_core/actions/get_vision_command.hpp"
 #include "tsb_bt_core/actions/move_turtle.hpp"
 #include "tsb_bt_core/actions/move_circular.hpp"
-using namespace std::chrono_literals;
 
 int main(int argc, char ** argv)
 {
@@ -88,14 +86,16 @@ factory.registerNodeType<tsb_bt_core::MoveCircular>(
   // ------------------------------------------------------------ execution loop
   rclcpp::Rate rate(tick_rate_hz);
   while (rclcpp::ok()) {
-  const BT::NodeStatus status = tree.tickWhileRunning(10ms);
+  const BT::NodeStatus status = tree.tickOnce();
 
-  RCLCPP_INFO(
-    node->get_logger(),
-    "Tree finished with status: %s",
-    BT::toStr(status).c_str());
+  if (status != BT::NodeStatus::RUNNING) {
+    RCLCPP_INFO(
+      node->get_logger(),
+      "Tree finished with status: %s",
+      BT::toStr(status).c_str());
+  }
 
-  if (run_once) {
+  if (run_once && status != BT::NodeStatus::RUNNING) {
     if (status == BT::NodeStatus::SUCCESS) {
       RCLCPP_INFO(
         node->get_logger(),
