@@ -9,7 +9,7 @@
   </description>
   <maintainer email="alexandre.oneill@tecnico.ulisboa.pt">TSB Recruitment</maintainer>
   <license>Apache-2.0</license>
-
+  <exec_depend>python3-pil</exec_depend>
   <exec_depend>rclpy</exec_depend>
   <exec_depend>ament_index_python</exec_depend>
   <exec_depend>std_msgs</exec_depend>
