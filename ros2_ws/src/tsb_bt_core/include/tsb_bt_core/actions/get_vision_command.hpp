@@ -14,34 +14,30 @@ namespace tsb_bt_core
 {
 
 /**
- * @brief BT Action: reads the latest classification published by the
- *        Python vision node (tsb_cv_brain) and exposes it on the blackboard.
+ * @brief Wait for a vision command and write it to the BT blackboard.
  *
- * ROS interface
- *   Subscribes: /vision/command  (std_msgs/msg/String)  e.g. "LEFT", "RIGHT", "FORWARD"
- *
- * BT interface (suggested, feel free to change; keep tree.xml in sync)
- *   Output port "command" (std::string)
- *
- * Threading: the subscription callback runs on the executor thread started in
- * bt_executor.cpp, while tick() runs on the main thread. Always access
- * `latest_command_` while holding `mutex_`.
+ * The ROS callback runs in the executor thread. Behavior Tree ticks run
+ * in the main thread, so access to latest_command_ is protected by a mutex.
  */
-class GetVisionCommand : public BT::SyncActionNode
+class GetVisionCommand : public BT::StatefulActionNode
 {
 public:
   static constexpr const char * kCommandTopic = "/vision/command";
 
   GetVisionCommand(
-    const std::string & name, const BT::NodeConfig & config,
+    const std::string & name,
+    const BT::NodeConfig & config,
     rclcpp::Node::SharedPtr node)
-  : BT::SyncActionNode(name, config), node_(std::move(node))
+  : BT::StatefulActionNode(name, config),
+    node_(std::move(node))
   {
-    subscription_ = node_->create_subscription<std_msgs::msg::String>(
-      kCommandTopic, rclcpp::QoS(10),
-      [this](const std_msgs::msg::String::SharedPtr msg) {
+    subscription_ =
+      node_->create_subscription<std_msgs::msg::String>(
+      kCommandTopic,
+      rclcpp::QoS(10),
+      [this](const std_msgs::msg::String::SharedPtr message) {
         std::lock_guard<std::mutex> lock(mutex_);
-        latest_command_ = msg->data;
+        latest_command_ = message->data;
       });
   }
 
@@ -49,53 +45,80 @@ public:
   {
     return {
       BT::OutputPort<std::string>(
-        "command", "Latest command received from the vision node"),
-      // TODO (candidate): add more ports if your design needs them.
+        "command",
+        "UP, DOWN, LEFT or RIGHT"),
     };
   }
 
-     BT::NodeStatus tick() override
-{
-  std::optional<std::string> command;
-
+  BT::NodeStatus onStart() override
   {
-    std::lock_guard<std::mutex> lock(mutex_);
+    RCLCPP_DEBUG(
+      node_->get_logger(),
+      "[%s] Waiting for a vision command",
+      name().c_str());
 
-    if (!latest_command_.has_value()) {
-      return BT::NodeStatus::FAILURE;
-    }
-
-    command = latest_command_;
-    latest_command_.reset();
+    return readCommand();
   }
 
-  if (
-    command.value() != "UP" &&
-    command.value() != "DOWN" &&
-    command.value() != "LEFT" &&
-    command.value() != "RIGHT")
+  BT::NodeStatus onRunning() override
   {
-    RCLCPP_WARN(
+    return readCommand();
+  }
+
+  void onHalted() override
+  {
+    RCLCPP_DEBUG(
       node_->get_logger(),
-      "[%s] Invalid command received: %s",
+      "[%s] Command wait halted",
+      name().c_str());
+  }
+
+private:
+  BT::NodeStatus readCommand()
+  {
+    std::optional<std::string> command;
+
+    {
+      std::lock_guard<std::mutex> lock(mutex_);
+
+      if (!latest_command_.has_value()) {
+        return BT::NodeStatus::RUNNING;
+      }
+
+      command = latest_command_;
+      latest_command_.reset();
+    }
+
+    if (!isValidCommand(command.value())) {
+      RCLCPP_WARN(
+        node_->get_logger(),
+        "[%s] Ignoring invalid command: %s",
+        name().c_str(),
+        command.value().c_str());
+
+      return BT::NodeStatus::RUNNING;
+    }
+
+    setOutput("command", command.value());
+
+    RCLCPP_INFO(
+      node_->get_logger(),
+      "[%s] Command written to blackboard: %s",
       name().c_str(),
       command.value().c_str());
 
-    return BT::NodeStatus::FAILURE;
+    return BT::NodeStatus::SUCCESS;
   }
 
-  setOutput("command", command.value());
+  static bool isValidCommand(const std::string & command)
+  {
+    return
+      command == "UP" ||
+      command == "DOWN" ||
+      command == "LEFT" ||
+      command == "RIGHT";
+  }
 
-  RCLCPP_INFO(
-    node_->get_logger(),
-    "[%s] Command written to blackboard: %s",
-    name().c_str(),
-    command.value().c_str());
-
-  return BT::NodeStatus::SUCCESS;
-}
-
-private:
   rclcpp::Node::SharedPtr node_;
   rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
 
