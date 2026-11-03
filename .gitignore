@@ -18,3 +18,8 @@ venv/
 .idea/
 *.swp
 *~
+
+# Colcon artefacts in any workspace root
+build/
+install/
+log/

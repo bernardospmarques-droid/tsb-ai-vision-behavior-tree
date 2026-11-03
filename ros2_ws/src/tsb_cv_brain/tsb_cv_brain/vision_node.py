@@ -1,7 +1,7 @@
 """ROS 2 node for arrow classification."""
 
-from pathlib import Path
 import time
+from pathlib import Path
 
 import rclpy
 import torch
@@ -13,7 +13,6 @@ from std_msgs.msg import String
 
 from tsb_cv_brain.image_processing import image_message_to_tensor
 from tsb_cv_brain.model import TurtleVisionCNN
-
 
 EXPECTED_CLASSES = ["Down", "Left", "Right", "Up"]
 
@@ -144,7 +143,6 @@ class VisionNode(Node):
     @staticmethod
     def resolve_model_path(configured_path):
         """Resolve the configured or installed checkpoint."""
-
         if str(configured_path).strip():
             model_path = Path(
                 configured_path
@@ -171,7 +169,6 @@ class VisionNode(Node):
 
     def image_callback(self, message):
         """Classify one ROS image."""
-
         start_time = time.perf_counter()
 
         try:
@@ -234,7 +231,6 @@ class VisionNode(Node):
 
 def main(args=None):
     """Initialize ROS 2 and run the vision node."""
-
     rclpy.init(args=args)
     node = None
 
