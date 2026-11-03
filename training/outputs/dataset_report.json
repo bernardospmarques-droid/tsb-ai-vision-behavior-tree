@@ -1,0 +1,17 @@
+{
+  "dataset_root": "/home/bernardo/sa_recrutamento_ai/dataset/arrow_dataset/extracted/Direction",
+  "total_images": 3593,
+  "class_counts": {
+    "Down": 830,
+    "Left": 921,
+    "Right": 921,
+    "Up": 921
+  },
+  "image_modes": {
+    "RGB": 3593
+  },
+  "image_sizes": {
+    "224x224": 3593
+  },
+  "corrupted_files": []
+}

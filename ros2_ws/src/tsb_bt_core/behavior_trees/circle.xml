@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root BTCPP_format="4" main_tree_to_execute="DrawCircle">
+
+  <BehaviorTree ID="DrawCircle">
+
+    <TurtleMoveCircular
+      name="DrawFullCircle"
+      linear_speed="2.0"
+      angular_speed="1.0"
+      duration="6.283"/>
+
+  </BehaviorTree>
+
+  <TreeNodesModel>
+
+    <Action ID="TurtleMoveCircular">
+
+      <input_port
+        name="linear_speed"
+        type="double"
+        default="2.0">
+        Linear speed in turtlesim units per second
+      </input_port>
+
+      <input_port
+        name="angular_speed"
+        type="double"
+        default="1.0">
+        Angular speed in radians per second
+      </input_port>
+
+      <input_port
+        name="duration"
+        type="double"
+        default="6.283">
+        Duration for one complete revolution
+      </input_port>
+
+    </Action>
+
+  </TreeNodesModel>
+
+</root>

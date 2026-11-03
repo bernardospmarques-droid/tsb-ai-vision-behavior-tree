@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root BTCPP_format="4" main_tree_to_execute="MainTree">
+
+  <BehaviorTree ID="MainTree">
+    <Sequence name="VisionToMotion">
+
+      <GetVisionCommand
+        name="GetVisionCommand"
+        command="{vision_command}"/>
+
+      <MoveTurtle
+        name="MoveTurtle"
+        command="{vision_command}"
+        linear_speed="2.0"
+        angular_speed="1.5"
+        duration="0.8"/>
+
+    </Sequence>
+  </BehaviorTree>
+
+  <TreeNodesModel>
+
+    <Action ID="GetVisionCommand">
+      <output_port
+        name="command"
+        type="std::string">
+        Latest command received from the vision node
+      </output_port>
+    </Action>
+
+    <Action ID="MoveTurtle">
+      <input_port
+        name="command"
+        type="std::string">
+        Direction to move: UP | DOWN | LEFT | RIGHT
+      </input_port>
+
+      <input_port
+        name="linear_speed"
+        type="double"
+        default="2.0">
+        Absolute linear speed
+      </input_port>
+
+      <input_port
+        name="angular_speed"
+        type="double"
+        default="1.5">
+        Absolute angular speed
+      </input_port>
+
+      <input_port
+        name="duration"
+        type="double"
+        default="0.8">
+        Movement duration in seconds
+      </input_port>
+    </Action>
+
+  </TreeNodesModel>
+
+</root>
