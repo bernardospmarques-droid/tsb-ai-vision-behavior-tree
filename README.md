@@ -1,7 +1,9 @@
-TSB AI Vision and Behavior Tree
+# TSB AI Vision and Behavior Tree
+
 Sistema ROS 2 que classifica imagens de setas através de uma CNN em PyTorch e converte a direção prevista num movimento do Turtlesim através de uma Behavior Tree.
 
-Arquitetura
+## Arquitetura
+
 Imagem
   |
   v
@@ -9,7 +11,9 @@ Imagem
 sensor_msgs/Image
   |
   v
-tsb_cv_brain
+
+### tsb_cv_brain
+
 TurtleVisionCNN
   |
   v
@@ -37,14 +41,19 @@ O sistema está dividido em três camadas principais:
 Perceção: a CNN classifica a imagem recebida.
 Decisão: a Behavior Tree recebe e valida o comando.
 Atuação: o nó MoveTurtle converte o comando numa mensagem geometry_msgs/Twist.
-Classes
+
+## Classes
+
 Índice	Classe da CNN	Comando ROS	Movimento
 0	Down	DOWN	Movimento linear negativo
 1	Left	LEFT	Rotação angular positiva
 2	Right	RIGHT	Rotação angular negativa
 3	Up	UP	Movimento linear positivo
-Packages ROS 2
-tsb_cv_brain
+
+## Packages ROS 2
+
+### tsb_cv_brain
+
 Package Python responsável por:
 
 receber imagens em /vision/image;
@@ -63,7 +72,9 @@ tsb_cv_brain/
 ├── image_publisher.py
 ├── model.py
 └── vision_node.py
-tsb_bt_core
+
+### tsb_bt_core
+
 Package C++ responsável por:
 
 receber comandos em /vision/command;
@@ -75,7 +86,9 @@ publicar em /turtle1/cmd_vel;
 interromper o movimento após a duração configurada;
 permitir monitorização através do Groot2;
 terminar corretamente quando recebe Ctrl+C.
-Ambiente validado
+
+## Ambiente validado
+
 O projeto foi desenvolvido e validado com:
 
 Ubuntu 24.04 LTS;
@@ -88,7 +101,9 @@ Turtlesim;
 Groot2, opcional;
 Colcon;
 Git.
-Estrutura do projeto
+
+## Estrutura do projeto
+
 tsb_project_clean/
 ├── .gitignore
 ├── README.md
@@ -105,7 +120,8 @@ A pasta ros2_ws/src/ contém apenas os packages necessários para a execução d
 
 Os diretórios build/, install/ e log/ são gerados pelo Colcon e não são guardados no Git.
 
-Preparação do ambiente
+## Preparação do ambiente
+
 Carregar o ROS 2 Jazzy:
 
 source /opt/ros/jazzy/setup.bash
@@ -120,7 +136,9 @@ A preparação completa de um terminal é:
 source /opt/ros/jazzy/setup.bash
 source ~/tsb_project_clean/.venv/bin/activate
 source ~/tsb_project_clean/ros2_ws/install/setup.bash
-Criação do ambiente virtual
+
+## Criação do ambiente virtual
+
 O ambiente virtual deve permitir acesso aos packages Python instalados pelo ROS 2:
 
 cd ~/tsb_project_clean
@@ -138,7 +156,9 @@ python -m pip install \
   pip \
   setuptools \
   wheel
-Instalação das dependências Python
+
+## Instalação das dependências Python
+
 Instalar PyTorch e Torchvision para CPU:
 
 python -m pip install \
@@ -156,7 +176,9 @@ Confirmar a instalação:
 python -c "import torch; print(torch.__version__)"
 python -c "import rclpy; print(rclpy.__file__)"
 python -c "import numpy; print(numpy.__version__)"
-Compilação
+
+## Compilação
+
 Entrar no workspace:
 
 cd ~/tsb_project_clean/ros2_ws
@@ -179,7 +201,9 @@ ros2 pkg prefix tsb_cv_brain
 Os dois comandos devem devolver caminhos dentro de:
 
 /home/bernardo/tsb_project_clean/ros2_ws/install/
-Testes automatizados
+
+## Testes automatizados
+
 Entrar no workspace:
 
 cd ~/tsb_project_clean/ros2_ws
@@ -213,16 +237,20 @@ XML lint;
 validação dos ficheiros das Behavior Trees.
 Os testes identificados como skipped correspondem a verificações desativadas ou não aplicáveis no boilerplate. Não representam falhas funcionais.
 
-Execução completa
+## Execução completa
+
 A execução completa pode ser feita através de quatro terminais.
 
-Terminal 1: Turtlesim
+### Terminal 1: Turtlesim
+
 source /opt/ros/jazzy/setup.bash
 source ~/tsb_project_clean/.venv/bin/activate
 source ~/tsb_project_clean/ros2_ws/install/setup.bash
 
 ros2 run turtlesim turtlesim_node
-Terminal 2: Behavior Tree
+
+### Terminal 2: Behavior Tree
+
 source /opt/ros/jazzy/setup.bash
 source ~/tsb_project_clean/.venv/bin/activate
 source ~/tsb_project_clean/ros2_ws/install/setup.bash
@@ -235,7 +263,8 @@ O executor permanece em RUNNING enquanto aguarda um comando. O estado RUNNING n�
 
 Quando um comando é recebido e executado, a árvore termina essa execução com SUCCESS e volta a aguardar pelo comando seguinte.
 
-Terminal 3: nó de visão
+### Terminal 3: nó de visão
+
 source /opt/ros/jazzy/setup.bash
 source ~/tsb_project_clean/.venv/bin/activate
 source ~/tsb_project_clean/ros2_ws/install/setup.bash
@@ -249,7 +278,9 @@ Classes: ['Down', 'Left', 'Right', 'Up']
 Input size: 96x96
 Listening on /vision/image
 Publishing on /vision/command
-Terminal 4: publicador de imagens
+
+### Terminal 4: publicador de imagens
+
 Preparar o terminal:
 
 source /opt/ros/jazzy/setup.bash
@@ -269,8 +300,10 @@ ros2 run tsb_cv_brain image_publisher \
   -p repeat_count:=1
 O publicador termina automaticamente após enviar a imagem.
 
-Testar as quatro classes
-Up
+## Testar as quatro classes
+
+### Up
+
 IMAGE="$(find \
   ~/sa_recrutamento_ai/dataset/arrow_dataset/extracted/Direction/Up \
   -type f \
@@ -280,7 +313,9 @@ ros2 run tsb_cv_brain image_publisher \
   --ros-args \
   -p image_path:="$IMAGE" \
   -p repeat_count:=1
-Down
+
+### Down
+
 IMAGE="$(find \
   ~/sa_recrutamento_ai/dataset/arrow_dataset/extracted/Direction/Down \
   -type f \
@@ -290,7 +325,9 @@ ros2 run tsb_cv_brain image_publisher \
   --ros-args \
   -p image_path:="$IMAGE" \
   -p repeat_count:=1
-Left
+
+### Left
+
 IMAGE="$(find \
   ~/sa_recrutamento_ai/dataset/arrow_dataset/extracted/Direction/Left \
   -type f \
@@ -300,7 +337,9 @@ ros2 run tsb_cv_brain image_publisher \
   --ros-args \
   -p image_path:="$IMAGE" \
   -p repeat_count:=1
-Right
+
+### Right
+
 IMAGE="$(find \
   ~/sa_recrutamento_ai/dataset/arrow_dataset/extracted/Direction/Right \
   -type f \
@@ -310,7 +349,9 @@ ros2 run tsb_cv_brain image_publisher \
   --ros-args \
   -p image_path:="$IMAGE" \
   -p repeat_count:=1
-Launch completo
+
+## Launch completo
+
 Os componentes principais também podem ser iniciados através do launch:
 
 source /opt/ros/jazzy/setup.bash
@@ -325,12 +366,15 @@ vision_node;
 bt_executor.
 A imagem é publicada separadamente através do executável image_publisher.
 
-Tópicos principais
+## Tópicos principais
+
 Tópico	Tipo	Finalidade
 /vision/image	sensor_msgs/Image	Imagem de entrada
 /vision/command	std_msgs/String	Direção classificada
 /turtle1/cmd_vel	geometry_msgs/Twist	Movimento da tartaruga
-Behavior Tree
+
+## Behavior Tree
+
 A árvore principal encontra-se em:
 
 ros2_ws/src/tsb_bt_core/behavior_trees/tree.xml
@@ -357,7 +401,9 @@ publica em /turtle1/cmd_vel;
 mantém o movimento durante a duração configurada;
 publica velocidade zero no final;
 devolve SUCCESS após concluir o movimento.
-Configuração de movimento
+
+## Configuração de movimento
+
 A árvore principal utiliza os seguintes valores:
 
 linear_speed = 2.0
@@ -370,7 +416,9 @@ UP	+2.0	0.0
 DOWN	-2.0	0.0
 LEFT	0.0	+1.5
 RIGHT	0.0	-1.5
-Modelo CNN
+
+## Modelo CNN
+
 O checkpoint encontra-se em:
 
 ros2_ws/src/tsb_cv_brain/models/arrow_cnn_best.pth
@@ -395,7 +443,9 @@ O modelo é carregado uma única vez durante a inicialização do vision_node.
 A inferência utiliza:
 
 torch.inference_mode()
-Resultados da CNN
+
+## Resultados da CNN
+
 Dataset:
 
 Total: 3.593 imagens
@@ -420,7 +470,9 @@ Resultados por classe:
 Precision: 1.0
 Recall: 1.0
 F1-score: 1.0
-Monitorização com Groot2
+
+## Monitorização com Groot2
+
 O bt_executor cria um Groot2Publisher.
 
 A porta predefinida é:
@@ -434,7 +486,9 @@ ros2 run tsb_bt_core bt_executor \
 No Groot2, utilizar o modo Monitor e ligar ao endereço:
 
 localhost:1667
-Reposição do Turtlesim
+
+## Reposição do Turtlesim
+
 Se a tartaruga atingir uma parede, repor o simulador:
 
 ros2 service call \
@@ -447,13 +501,16 @@ ros2 service call \
   /turtle1/teleport_absolute \
   turtlesim/srv/TeleportAbsolute \
   "{x: 5.5, y: 5.5, theta: 0.0}"
-Encerramento
+
+## Encerramento
+
 Os nós podem ser terminados através de:
 
 Ctrl+C
 O bt_executor utiliza tree.tickOnce(), devolvendo controlo ao ciclo principal após cada tick. Isto permite que o processo responda corretamente aos sinais de encerramento.
 
-Git
+## Git
+
 Versões estáveis:
 
 v1.0-end-to-end
@@ -468,7 +525,9 @@ git log --oneline --decorate
 Consultar o estado:
 
 git status
-Estado do projeto
+
+## Estado do projeto
+
 Estrutura limpa e organizada;
 CNN treinada e validada;
 checkpoint integrado;
