@@ -35,7 +35,6 @@ target_include_directories(bt_executor PUBLIC
 )
 ament_target_dependencies(bt_executor ${dependencies})
 
-# TODO (candidate): if you add more .cpp files (e.g. one per BT node),
 # list them in add_executable() above or build them into a library.
 
 # ------------------------------------------------------------------ install

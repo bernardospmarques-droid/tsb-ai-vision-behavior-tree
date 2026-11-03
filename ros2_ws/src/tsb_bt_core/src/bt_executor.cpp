@@ -56,8 +56,6 @@ factory.registerNodeType<tsb_bt_core::Rotate>(
   "TurtleRotate", node);
 factory.registerNodeType<tsb_bt_core::MoveCircular>(
   "TurtleMoveCircular", node);
- // TODO (candidate): register any additional custom nodes here
-  // (Actions, Conditions, Decorators...).
 
   if (print_models) {
     // Paste this output into the <TreeNodesModel> of tree.xml so Groot2 knows
