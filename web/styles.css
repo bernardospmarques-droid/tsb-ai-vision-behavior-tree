@@ -1,0 +1,183 @@
+:root {
+  color-scheme: dark;
+  font-family: Arial, sans-serif;
+  background: #07111f;
+  color: #eaf2ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(
+    circle at top,
+    #17335c,
+    #07111f 55%,
+    #030811
+  );
+}
+
+.app {
+  width: min(960px, 92vw);
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.eyebrow {
+  color: #62d7ff;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 10px;
+}
+
+header > p:last-child {
+  color: #afc0d8;
+}
+
+.status-card,
+.canvas-panel,
+.result-panel {
+  background: rgba(9, 23, 42, 0.9);
+  border: 1px solid rgba(127, 174, 230, 0.25);
+  border-radius: 18px;
+}
+
+.status-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  margin: 24px 0 18px;
+}
+
+.endpoint {
+  margin-left: auto;
+  color: #8296b3;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.online {
+  background: #39e58c;
+  box-shadow: 0 0 14px #39e58c;
+}
+
+.offline {
+  background: #ff5f6d;
+  box-shadow: 0 0 14px #ff5f6d;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+}
+
+.canvas-panel,
+.result-panel {
+  padding: 20px;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  background: black;
+  border: 2px solid #30527e;
+  border-radius: 14px;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+button {
+  flex: 1;
+  border: 0;
+  border-radius: 12px;
+  padding: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.primary {
+  color: white;
+  background: linear-gradient(
+    135deg,
+    #2ec5ff,
+    #8b5cf6
+  );
+}
+
+.secondary {
+  color: #d9e7fb;
+  background: #1a2d49;
+}
+
+.result-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.label {
+  color: #8296b3;
+  text-transform: uppercase;
+}
+
+.prediction {
+  color: #6ee7ff;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 900;
+}
+
+.mapping {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.mapping span {
+  padding: 9px;
+  text-align: center;
+  background: #11243f;
+  border-radius: 9px;
+}
+
+footer {
+  margin-top: 18px;
+  color: #8296b3;
+}
+
+@media (max-width: 760px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .endpoint {
+    display: none;
+  }
+}
