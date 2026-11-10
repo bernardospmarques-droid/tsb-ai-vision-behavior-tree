@@ -171,6 +171,5 @@ A accuracy perfeita deve ser interpretada apenas dentro da distribuição do dat
 ## Estado validado
 
 - Branch: `main`.
-- Commit de referência anterior à limpeza: `0032133`.
 - Vídeo final comprimido e incluído no Git.
 - Blackboard, web, CNN, formas e Turtlesim integrados.

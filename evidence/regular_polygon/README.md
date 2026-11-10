@@ -9,10 +9,10 @@ turn_direction = LEFT
 linear_speed = 1.5
 side_duration = 1.0
 angular_speed = 1.5
-turn_duration = 0.6981 s, calculado automaticamente
+turn_duration = 0.6981 s
 ```
 
-Ficheiros esperados:
+Evidências:
 
-- `regular_hexagon_turtlesim.png`
 - `execution.log`
+- `../final_validation/final_integrated_demo.mp4`
