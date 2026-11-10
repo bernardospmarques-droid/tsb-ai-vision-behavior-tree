@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<root BTCPP_format="4" main_tree_to_execute="DrawCircle">
-  <BehaviorTree ID="DrawCircle"><TurtleMoveCircular name="DrawFullCircle" linear_speed="2.0" angular_speed="1.5" duration="4.1888"/></BehaviorTree>
-  <TreeNodesModel><Action ID="TurtleMoveCircular">
-    <input_port name="linear_speed" type="double" default="2.0"/><input_port name="angular_speed" type="double" default="1.5"/>
-    <input_port name="duration" type="double" default="4.1888"/>
-  </Action></TreeNodesModel>
-</root>

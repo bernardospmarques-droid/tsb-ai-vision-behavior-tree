@@ -1,5 +1,5 @@
-from glob import glob
 import os
+from glob import glob
 
 from setuptools import find_packages, setup
 
@@ -24,11 +24,10 @@ setup(
     maintainer_email='alexandre.oneill@tecnico.ulisboa.pt',
     description='PyTorch vision node that turns images into turtle commands.',
     license='Apache-2.0',
-    tests_require=['pytest'],
     entry_points={
         'console_scripts': [
             'vision_node = tsb_cv_brain.vision_node:main',
             'image_publisher = tsb_cv_brain.image_publisher:main',
-            'canvas_bridge = tsb_cv_brain.canvas_bridge:main',        ],
+            'canvas_bridge = tsb_cv_brain.canvas_bridge:main',],
     },
 )

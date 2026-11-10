@@ -2,10 +2,11 @@
 
 import base64
 from io import BytesIO
-from rclpy.executors import ExternalShutdownException
+
 import numpy as np
-from PIL import Image as PillowImage
 import rclpy
+from PIL import Image as PillowImage
+from rclpy.executors import ExternalShutdownException
 from rclpy.node import Node
 from sensor_msgs.msg import Image
 from std_msgs.msg import String

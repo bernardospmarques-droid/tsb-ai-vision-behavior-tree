@@ -219,8 +219,8 @@ private:
   std::chrono::steady_clock::time_point start_time_;
 
   double linear_speed_{2.0};
-  double angular_speed_{1.0};
-  double duration_seconds_{6.283};
+  double angular_speed_{1.5};
+  double duration_seconds_{4.1888};
 };
 
 }  // namespace tsb_bt_core

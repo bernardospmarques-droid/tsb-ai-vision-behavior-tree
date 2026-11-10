@@ -11,8 +11,8 @@
   <main class="app">
     <header>
       <p class="eyebrow">ROS 2 | PyTorch | BehaviorTree.CPP | Groot2</p>
-      <h1>Setas e formas geometricas</h1>
-      <p>Desenha uma seta para a CNN ou executa diretamente um quadrado ou circulo.</p>
+      <h1>Setas e formas geométricas</h1>
+      <p>Desenha uma seta para a CNN ou executa diretamente um quadrado, círculo ou polígono regular.</p>
     </header>
     <section class="status-card">
       <span id="statusDot" class="dot offline"></span>
@@ -28,8 +28,8 @@
           <button id="resetTurtleButton" class="secondary" disabled>Reiniciar Turtlesim</button>
           <button id="classifyButton" class="primary" disabled>Classificar seta</button>
           <button id="squareButton" class="shape" disabled>Quadrado</button>
-          <button id="circleButton" class="shape" disabled>Circulo</button>
-          <button id="polygonButton" class="shape" disabled>Poligono regular</button>
+          <button id="circleButton" class="shape" disabled>Círculo</button>
+          <button id="polygonButton" class="shape" disabled>Polígono regular</button>
         </div>
       </div>
       <aside class="result-panel">
@@ -37,14 +37,14 @@
         <div id="prediction" class="prediction">A aguardar</div>
         <p id="resultMessage">Liga ao ROS e escolhe uma acao.</p>
         <div class="mapping">
-          <span>UP | Avancar</span><span>DOWN | Recuar</span>
+          <span>UP | Avançar</span><span>DOWN | Recuar</span>
           <span>LEFT | Rodar 90 graus</span><span>RIGHT | Rodar 90 graus</span>
           <span>SQUARE | Quadrado</span><span>CIRCLE | Circulo</span>
-          <span class="wide">REGULAR_POLYGON | Poligono regular</span>
+          <span class="wide">REGULAR_POLYGON | Polígono regular</span>
         </div>
       </aside>
     </section>
-    <footer>As setas passam pela CNN. SQUARE e CIRCLE sao publicados diretamente em /vision/command.</footer>
+    <footer>As setas passam pela CNN. SQUARE, CIRCLE e REGULAR_POLYGON são publicados diretamente em /vision/command.</footer>
   </main>
   <script src="app.js"></script>
 </body>

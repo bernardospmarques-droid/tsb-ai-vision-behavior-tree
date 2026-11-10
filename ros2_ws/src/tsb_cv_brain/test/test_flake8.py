@@ -1,8 +1,7 @@
 """Run Flake8 while excluding non-functional style preferences."""
 
-from ament_flake8.main import main_with_errors
 import pytest
-
+from ament_flake8.main import main_with_errors
 
 IGNORED_CODES = (
     ': Q000 ',

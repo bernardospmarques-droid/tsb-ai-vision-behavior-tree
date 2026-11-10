@@ -1,7 +1,6 @@
 # Validação final integrada
 
-## Evidência audiovisual
+- Vídeo: `final_integrated_demo.mp4`.
+- Testes: `test_results.txt`.
 
-- Vídeo: `final_integrated_demo.mp4`
-
-O vídeo mostra simultaneamente a interface web, o Groot2, a Behavior Tree e a execução no Turtlesim.
+O vídeo mostra a interface web, o Groot2, a Behavior Tree e o Turtlesim na mesma execução.

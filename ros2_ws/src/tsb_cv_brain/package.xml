@@ -4,8 +4,7 @@
   <name>tsb_cv_brain</name>
   <version>0.1.0</version>
   <description>
-    PyTorch vision node that classifies incoming images into turtle commands
-    (LEFT / RIGHT / FORWARD) for the tsb_bt_core Behavior Tree. Recruitment challenge boilerplate.
+    PyTorch vision package that classifies arrows as UP, DOWN, LEFT or RIGHT and bridges the web canvas to ROS 2.
   </description>
   <maintainer email="alexandre.oneill@tecnico.ulisboa.pt">TSB Recruitment</maintainer>
   <license>Apache-2.0</license>

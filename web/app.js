@@ -30,7 +30,7 @@ function resetCanvas() {
   context.lineCap = 'round';
   context.lineJoin = 'round';
   prediction.textContent = 'A aguardar';
-  resultMessage.textContent = connected ? 'Desenha uma seta ou escolhe uma forma.' : 'Liga ao ROS e escolhe uma acao.';
+  resultMessage.textContent = connected ? 'Desenha uma seta ou escolhe uma forma.' : 'Liga ao ROS e escolhe uma ação.';
 }
 function getPoint(event) {
   const rectangle = canvas.getBoundingClientRect();
@@ -107,8 +107,8 @@ function markDisconnected(message) {
   connected = false; connectionStatus.textContent = 'Desligado'; statusDot.className = 'dot offline';
   setActionButtons(false); resultMessage.textContent = message;
 }
-ros.on('error', () => markDisconnected('Erro na ligacao WebSocket.'));
-ros.on('close', () => markDisconnected('Ligacao ao ROS encerrada.'));
+ros.on('error', () => markDisconnected('Erro na ligação WebSocket.'));
+ros.on('close', () => markDisconnected('Ligação ao ROS encerrada.'));
 commandTopic.subscribe((message) => {
   prediction.textContent = message.data; resultMessage.textContent = 'Comando recebido: ' + message.data;
   if (connected) setActionButtons(true);
@@ -118,9 +118,9 @@ function publishShape(command) {
   commandTopic.publish(new ROSLIB.Message({data: command}));
   prediction.textContent = command;
   if (command === 'SQUARE') {
-    resultMessage.textContent = 'Quadrado enviado como poligono regular de 4 lados.';
+    resultMessage.textContent = 'Quadrado enviado como polígono regular de 4 lados.';
   } else if (command === 'CIRCLE') {
-    resultMessage.textContent = 'Circulo enviado: velocidades linear e angular simultaneas.';
+    resultMessage.textContent = 'Círculo enviado: velocidades linear e angular simultaneas.';
   } else {
     resultMessage.textContent = 'Poligono regular enviado para a Behavior Tree.';
   }
@@ -131,13 +131,13 @@ polygonButton.addEventListener('click', () => publishShape('REGULAR_POLYGON'));
 classifyButton.addEventListener('click', () => {
   if (!connected) return;
   setActionButtons(false); prediction.textContent = '...';
-  resultMessage.textContent = 'Imagem enviada. A aguardar classificacao.';
+  resultMessage.textContent = 'Imagem enviada. A aguardar classificação.';
   canvasTopic.publish(new ROSLIB.Message({data: canvas.toDataURL('image/png')}));
   window.setTimeout(() => {
     if (prediction.textContent === '...') {
-      setActionButtons(true); resultMessage.textContent = 'Sem resposta. Verifica os nos ROS.';
+      setActionButtons(true); resultMessage.textContent = 'Sem resposta. Verifica os nós ROS.';
     }
-  }, 5000);
+  }, 10000);
 });
 setActionButtons(false);
 resetCanvas();

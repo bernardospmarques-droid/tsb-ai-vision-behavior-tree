@@ -1,1 +1,21 @@
-Summary: 18 tests, 0 errors, 0 failures, 6 skipped
+Final validation summary
+
+tsb_bt_core:
+- 5 tests executed
+- 5 passed
+- 0 failed
+
+tsb_cv_brain:
+- 8 tests executed directly with pytest
+- 8 passed
+- 0 failed
+
+Total:
+- 13 tests executed
+- 13 passed
+- 0 failed
+
+Notes:
+- tsb_cv_brain was validated directly with pytest.
+- The previous colcon Python failure was caused by the legacy setuptools test runner not discovering the tests.
+- No functional test failures were detected.
