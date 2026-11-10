@@ -8,7 +8,7 @@
 
 A subárvore `DrawRegularPolygon` contém `CalculateTurnDuration`, `RepeatPolygonSides`, `PolygonMove` e `PolygonTurn`.
 
-A versão gratuita do Groot2 pode limitar a monitorização acima de 20 nós. A evidência atual está no vídeo integrado:
+A evidência atual está no vídeo integrado:
 
 ```text
 ../final_validation/final_integrated_demo.mp4
