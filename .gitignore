@@ -33,3 +33,12 @@ backup_before_shapes_*/
 backup_web_before_shapes_*/
 *.backup_tick10
 declare_parameter
+
+apply_regular_polygon.py
+update_final_documentation.py
+backup_before_regular_polygon_*/
+backup_before_final_docs_*/
+add_web_clear_buttons.py
+backup_before_web_clear_buttons_*/
+fix_square_and_switch_label.py
+backup_before_square_lock_*/

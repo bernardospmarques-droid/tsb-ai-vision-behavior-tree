@@ -1,0 +1,28 @@
+[INFO] [1794275389.311997408] [bt_executor]: Loading behavior tree: /home/bernardo/tsb_project_clean/ros2_ws/install/tsb_bt_core/share/tsb_bt_core/behavior_trees/tree.xml
+[INFO] [1794275393.232031168] [bt_executor]: [GetCommand] Command written to blackboard: REGULAR_POLYGON
+[INFO] [1794275393.232280796] [bt_executor]: [PolygonMove] Command UP: linear.x=1.50 angular.z=0.00 duration=1.00
+[INFO] [1794275395.251912216] [bt_executor]: [PolygonMove] Movement completed
+[INFO] [1794275395.252074646] [bt_executor]: [PolygonTurn] Command LEFT: linear.x=0.00 angular.z=1.50 duration=0.70
+[INFO] [1794275395.951906169] [bt_executor]: [PolygonTurn] Movement completed
+[INFO] [1794275395.952037894] [bt_executor]: [PolygonMove] Command UP: linear.x=1.50 angular.z=0.00 duration=1.00
+[INFO] [1794275396.961998261] [bt_executor]: [PolygonMove] Movement completed
+[INFO] [1794275396.962162218] [bt_executor]: [PolygonTurn] Command LEFT: linear.x=0.00 angular.z=1.50 duration=0.70
+[INFO] [1794275397.661868646] [bt_executor]: [PolygonTurn] Movement completed
+[INFO] [1794275397.662027427] [bt_executor]: [PolygonMove] Command UP: linear.x=1.50 angular.z=0.00 duration=1.00
+[INFO] [1794275398.671921595] [bt_executor]: [PolygonMove] Movement completed
+[INFO] [1794275398.672076016] [bt_executor]: [PolygonTurn] Command LEFT: linear.x=0.00 angular.z=1.50 duration=0.70
+[INFO] [1794275399.371939835] [bt_executor]: [PolygonTurn] Movement completed
+[INFO] [1794275399.372107682] [bt_executor]: [PolygonMove] Command UP: linear.x=1.50 angular.z=0.00 duration=1.00
+[INFO] [1794275400.381984200] [bt_executor]: [PolygonMove] Movement completed
+[INFO] [1794275400.382126385] [bt_executor]: [PolygonTurn] Command LEFT: linear.x=0.00 angular.z=1.50 duration=0.70
+[INFO] [1794275401.081958344] [bt_executor]: [PolygonTurn] Movement completed
+[INFO] [1794275401.082116805] [bt_executor]: [PolygonMove] Command UP: linear.x=1.50 angular.z=0.00 duration=1.00
+[INFO] [1794275402.091917957] [bt_executor]: [PolygonMove] Movement completed
+[INFO] [1794275402.092159330] [bt_executor]: [PolygonTurn] Command LEFT: linear.x=0.00 angular.z=1.50 duration=0.70
+[INFO] [1794275402.791958213] [bt_executor]: [PolygonTurn] Movement completed
+[INFO] [1794275402.792126114] [bt_executor]: [PolygonMove] Command UP: linear.x=1.50 angular.z=0.00 duration=1.00
+[INFO] [1794275403.801983989] [bt_executor]: [PolygonMove] Movement completed
+[INFO] [1794275403.802141768] [bt_executor]: [PolygonTurn] Command LEFT: linear.x=0.00 angular.z=1.50 duration=0.70
+[INFO] [1794275404.501962935] [bt_executor]: [PolygonTurn] Movement completed
+[INFO] [1794275404.502036732] [bt_executor]: Tree finished with status: SUCCESS
+[INFO] [1794275404.502042339] [bt_executor]: Tree completed successfully. Stopping because run_once=true.

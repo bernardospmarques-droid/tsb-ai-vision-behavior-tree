@@ -23,10 +23,13 @@
       <div class="canvas-panel">
         <canvas id="drawCanvas" width="320" height="320"></canvas>
         <div class="controls">
-          <button id="clearButton" class="secondary">Limpar</button>
+          <button id="clearButton" class="secondary">Limpar seta</button>
+          <button id="clearTurtleButton" class="secondary" disabled>Limpar desenho</button>
+          <button id="resetTurtleButton" class="secondary" disabled>Reiniciar Turtlesim</button>
           <button id="classifyButton" class="primary" disabled>Classificar seta</button>
           <button id="squareButton" class="shape" disabled>Quadrado</button>
           <button id="circleButton" class="shape" disabled>Circulo</button>
+          <button id="polygonButton" class="shape" disabled>Poligono regular</button>
         </div>
       </div>
       <aside class="result-panel">
@@ -37,6 +40,7 @@
           <span>UP | Avancar</span><span>DOWN | Recuar</span>
           <span>LEFT | Rodar 90 graus</span><span>RIGHT | Rodar 90 graus</span>
           <span>SQUARE | Quadrado</span><span>CIRCLE | Circulo</span>
+          <span class="wide">REGULAR_POLYGON | Poligono regular</span>
         </div>
       </aside>
     </section>

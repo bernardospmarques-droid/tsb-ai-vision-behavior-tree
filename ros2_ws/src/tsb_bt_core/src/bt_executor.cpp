@@ -15,6 +15,7 @@
 #include "tsb_bt_core/actions/get_vision_command.hpp"
 #include "tsb_bt_core/actions/move_turtle.hpp"
 #include "tsb_bt_core/actions/move_circular.hpp"
+#include "tsb_bt_core/actions/calculate_polygon_turn.hpp"
 
 int main(int argc, char ** argv)
 {
@@ -56,6 +57,8 @@ factory.registerNodeType<tsb_bt_core::Rotate>(
   "TurtleRotate", node);
 factory.registerNodeType<tsb_bt_core::MoveCircular>(
   "TurtleMoveCircular", node);
+factory.registerNodeType<tsb_bt_core::CalculatePolygonTurn>(
+  "CalculatePolygonTurn");
 
   if (print_models) {
     // Paste this output into the <TreeNodesModel> of tree.xml so Groot2 knows

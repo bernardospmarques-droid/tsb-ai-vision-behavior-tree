@@ -46,7 +46,7 @@ public:
     return {
       BT::OutputPort<std::string>(
         "command",
-        "UP, DOWN, LEFT, RIGHT, SQUARE or CIRCLE"),
+        "UP, DOWN, LEFT, RIGHT, SQUARE, CIRCLE or REGULAR_POLYGON"),
     };
   }
 
@@ -118,7 +118,8 @@ private:
       command == "LEFT" ||
       command == "RIGHT" ||
       command == "SQUARE" ||
-      command == "CIRCLE";
+      command == "CIRCLE" ||
+      command == "REGULAR_POLYGON";
   }
 
   rclcpp::Node::SharedPtr node_;

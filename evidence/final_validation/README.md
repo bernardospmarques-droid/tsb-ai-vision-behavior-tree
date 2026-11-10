@@ -1,9 +1,7 @@
-# Validação final
+# Validação final integrada
 
-- Testes executados: 18
-- Erros: 0
-- Falhas: 0
-- Ignorados: 6
-- ROS 2: Jazzy
-- Python: 3.12
-- Resultado: aprovado
+## Evidência audiovisual
+
+- Vídeo: `final_integrated_demo.mp4`
+
+O vídeo mostra simultaneamente a interface web, o Groot2, a Behavior Tree e a execução no Turtlesim.

@@ -1,49 +1,67 @@
 # Demonstração ponta a ponta da interface web
 
-## Componentes demonstrados
+## Botões
 
-- interface web com canvas HTML5;
-- ligação ao ROS 2 através do rosbridge WebSocket;
-- publicação em `/vision/canvas_png`;
-- conversão da imagem pelo `canvas_bridge`;
-- inferência com a `TurtleVisionCNN`;
-- publicação em `/vision/command`;
-- Behavior Tree monitorizada no Groot2;
-- atuação no Turtlesim.
+- `Limpar`;
+- `Classificar seta`;
+- `Quadrado`;
+- `Círculo`;
+- `Polígono regular`.
 
-## Pipeline demonstrada
+## Pipeline das setas
 
+```text
 Canvas HTML5
-→ rosbridge_server
-→ /vision/canvas_png
-→ canvas_bridge
-→ /vision/image
-→ vision_node
-→ TurtleVisionCNN
-→ /vision/command
-→ GetVisionCommand
-→ Blackboard {vision_command}
-→ MoveTurtle
-→ /turtle1/cmd_vel
-→ Turtlesim
+-> rosbridge_server
+-> /vision/canvas_png
+-> canvas_bridge
+-> /vision/image
+-> vision_node
+-> TurtleVisionCNN
+-> /vision/command
+-> GetVisionCommand
+-> Blackboard {command}
+-> SelectBehavior
+-> MoveTurtle
+-> Turtlesim
+```
 
-## Semântica dos comandos
+A CNN classifica apenas `UP`, `DOWN`, `LEFT` e `RIGHT`.
 
-Os comandos são relativos à orientação atual da tartaruga:
+## Pipeline das formas
 
-- `UP`: avançar;
-- `DOWN`: recuar;
-- `LEFT`: rodar à esquerda no lugar;
-- `RIGHT`: rodar à direita no lugar.
+```text
+Botão web
+-> rosbridge_server
+-> /vision/command
+-> Behavior Tree
+-> DrawRegularPolygon ou DrawCircle
+-> Turtlesim
+```
 
-## Evidência
+`SQUARE`, `CIRCLE` e `REGULAR_POLYGON` não passam pela CNN.
 
-- Vídeo: `web_groot2_turtlesim_demo.mp4`
+## Serviços
 
-O vídeo mostra simultaneamente:
+```text
+Página: http://localhost:8000
+WebSocket: ws://localhost:9090
+Groot2Publisher: localhost:1667
+```
 
-1. a página ligada ao ROS 2;
-2. uma seta desenhada no canvas;
-3. a classificação apresentada na página;
-4. os estados da Behavior Tree no Groot2;
-5. o movimento correspondente no Turtlesim.
+A classificação de setas exige `canvas_bridge`, `vision_node` e o modelo CNN. Os botões geométricos exigem `rosbridge_server`, `bt_executor`, `turtlesim_node` e o servidor HTTP.
+
+## Evidências
+
+- Vídeo atual a gravar: `web_all_commands_demo.mp4`
+- Captura recomendada: `web_all_commands.png`
+
+## Limpeza da interface e do Turtlesim
+
+A página distingue três operações:
+
+- `Limpar seta`: limpa apenas o canvas HTML e não chama serviços ROS 2;
+- `Limpar desenho`: chama `/clear`, apaga os traços e mantém a posição e orientação da tartaruga;
+- `Reiniciar Turtlesim`: chama `/reset`, apaga os traços e repõe a tartaruga na posição inicial.
+
+Para gravar evidências comparáveis, deve usar-se `Reiniciar Turtlesim` antes de executar cada forma.

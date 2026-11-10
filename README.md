@@ -552,3 +552,56 @@ A CNN continua a classificar apenas as quatro setas. `SQUARE` e `CIRCLE` sao com
 - Raio aproximado: 2.0 / 1.5 = 1.333 unidades.
 - Monitorizacao Groot2: `localhost:1667`.
 
+## Poligono regular configuravel
+
+O comando `REGULAR_POLYGON` executa a subarvore `DrawRegularPolygon`.
+Os parametros visiveis no Groot2 sao:
+
+- `number_of_sides`: de 3 a 12;
+- `move_direction`: `UP` ou `DOWN`;
+- `turn_direction`: `LEFT` ou `RIGHT`;
+- `linear_speed`;
+- `side_duration`;
+- `angular_speed`.
+
+O no `CalculatePolygonTurn` calcula automaticamente:
+
+```text
+turn_duration = 2*pi / (number_of_sides * abs(angular_speed))
+```
+
+O quadrado reutiliza a mesma subarvore com `number_of_sides=4`.
+Depois de editar e guardar `tree.xml` no Groot2, deve reiniciar-se o `bt_executor`.
+
+## Arquitetura geométrica final
+
+A árvore principal suporta `UP`, `DOWN`, `LEFT`, `RIGHT`, `SQUARE`, `CIRCLE` e `REGULAR_POLYGON` através de `/vision/command`.
+
+- `SQUARE` reutiliza `DrawRegularPolygon` com quatro lados.
+- `REGULAR_POLYGON` permite entre 3 e 12 lados e aceita `UP/DOWN` e `LEFT/RIGHT`.
+- `CalculatePolygonTurn` escreve `turn_duration` no Blackboard usando `2*pi/(n*abs(angular_speed))`.
+- `CIRCLE` aplica velocidades linear e angular simultaneamente.
+- O executor trabalha a `100 Hz`.
+- No Groot2, o modo Monitor é de leitura; os valores são alterados no Editor e aplicados depois de reiniciar o `bt_executor`.
+
+Evidências atualizadas:
+
+- `evidence/geometric_shapes.md`
+- `evidence/square/`
+- `evidence/circle/`
+- `evidence/regular_polygon/`
+- `evidence/groot2/`
+- `evidence/web_canvas/`
+
+## Parâmetros protegidos do quadrado
+
+No nó `ExecuteSquare`, `number_of_sides=4` e `angular_speed=1.5` estão fixos dentro de `DrawSquare` e não aparecem como parâmetros editáveis no Groot2. Permanecem editáveis apenas `move_direction`, `turn_direction`, `linear_speed` e `side_duration`.
+
+O port `variable` do `Switch6` continua ligado a `{command}`, porque é o valor que seleciona o comportamento. Para tornar o uso da saída final explícito no Groot2, o nome visual do nó é `SelectBehavior_REGULAR_POLYGON_fallback`.
+
+
+## Vídeo final integrado
+
+A demonstração conjunta da interface web, do Groot2, da Behavior Tree e do Turtlesim está disponível em:
+
+`evidence/final_validation/final_integrated_demo.mp4`

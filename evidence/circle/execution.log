@@ -1,5 +1,6 @@
-[INFO] [1793745008.375414627] [bt_executor]: Loading behavior tree: /home/bernardo/tsb_project_clean/ros2_ws/src/tsb_bt_core/behavior_trees/circle.xml
-[INFO] [1793745008.385494011] [bt_executor]: [DrawFullCircle] Circular movement started: linear=2.00, angular=1.00, duration=6.283, approximate radius=2.00
-[INFO] [1793745014.685816434] [bt_executor]: [DrawFullCircle] Circular movement completed
-[INFO] [1793745014.685952166] [bt_executor]: Tree finished with status: SUCCESS
-[INFO] [1793745014.685969882] [bt_executor]: Tree completed successfully. Stopping because run_once=true.
+[INFO] [1794275376.511419367] [bt_executor]: Loading behavior tree: /home/bernardo/tsb_project_clean/ros2_ws/install/tsb_bt_core/share/tsb_bt_core/behavior_trees/tree.xml
+[INFO] [1794275379.798455761] [bt_executor]: [GetCommand] Command written to blackboard: CIRCLE
+[INFO] [1794275379.798675419] [bt_executor]: [DrawFullCircle] Circular movement started: linear=2.00, angular=1.50, duration=4.189, approximate radius=1.33
+[INFO] [1794275383.988594725] [bt_executor]: [DrawFullCircle] Circular movement completed
+[INFO] [1794275383.988669215] [bt_executor]: Tree finished with status: SUCCESS
+[INFO] [1794275383.988674707] [bt_executor]: Tree completed successfully. Stopping because run_once=true.
