@@ -1,63 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <root BTCPP_format="4" main_tree_to_execute="MainTree">
-
   <BehaviorTree ID="MainTree">
-    <Sequence name="VisionToMotion">
-
-      <GetVisionCommand
-        name="GetVisionCommand"
-        command="{vision_command}"/>
-
-      <MoveTurtle
-        name="MoveTurtle"
-        command="{vision_command}"
-        linear_speed="2.0"
-        angular_speed="1.5"
-        duration="0.8"/>
-
+    <Sequence name="ReceiveAndExecute">
+      <GetVisionCommand name="GetCommand" command="{command}"/>
+      <Switch6 name="SelectBehavior" variable="{command}"
+               case_1="UP" case_2="DOWN" case_3="LEFT"
+               case_4="RIGHT" case_5="SQUARE" case_6="CIRCLE">
+        <MoveTurtle name="MoveForward" command="UP" linear_speed="2.0" angular_speed="1.5" duration="0.8"/>
+        <MoveTurtle name="MoveBackward" command="DOWN" linear_speed="2.0" angular_speed="1.5" duration="0.8"/>
+        <MoveTurtle name="RotateLeft90" command="LEFT" linear_speed="2.0" angular_speed="1.5" duration="1.0472"/>
+        <MoveTurtle name="RotateRight90" command="RIGHT" linear_speed="2.0" angular_speed="1.5" duration="1.0472"/>
+        <SubTree ID="DrawSquare" name="ExecuteSquare"/>
+        <SubTree ID="DrawCircle" name="ExecuteCircle"/>
+        <AlwaysFailure name="UnsupportedCommand"/>
+      </Switch6>
     </Sequence>
   </BehaviorTree>
-
+  <BehaviorTree ID="DrawSquare">
+    <Repeat name="RepeatFourSides" num_cycles="4">
+      <Sequence name="DrawOneSide">
+        <MoveTurtle name="SquareForward" command="UP" linear_speed="2.0" angular_speed="1.5" duration="1.5"/>
+        <MoveTurtle name="SquareLeft90" command="LEFT" linear_speed="2.0" angular_speed="1.5" duration="1.0472"/>
+      </Sequence>
+    </Repeat>
+  </BehaviorTree>
+  <BehaviorTree ID="DrawCircle">
+    <TurtleMoveCircular name="DrawFullCircle" linear_speed="2.0" angular_speed="1.5" duration="4.1888"/>
+  </BehaviorTree>
   <TreeNodesModel>
-
-    <Action ID="GetVisionCommand">
-      <output_port
-        name="command"
-        type="std::string">
-        Latest command received from the vision node
-      </output_port>
-    </Action>
-
+    <Action ID="GetVisionCommand"><output_port name="command" type="std::string">UP, DOWN, LEFT, RIGHT, SQUARE or CIRCLE</output_port></Action>
     <Action ID="MoveTurtle">
-      <input_port
-        name="command"
-        type="std::string">
-        Direction to move: UP | DOWN | LEFT | RIGHT
-      </input_port>
-
-      <input_port
-        name="linear_speed"
-        type="double"
-        default="2.0">
-        Absolute linear speed
-      </input_port>
-
-      <input_port
-        name="angular_speed"
-        type="double"
-        default="1.5">
-        Absolute angular speed
-      </input_port>
-
-      <input_port
-        name="duration"
-        type="double"
-        default="0.8">
-        Movement duration in seconds
-      </input_port>
+      <input_port name="command" type="std::string">UP, DOWN, LEFT or RIGHT</input_port>
+      <input_port name="linear_speed" type="double" default="2.0">Absolute linear speed</input_port>
+      <input_port name="angular_speed" type="double" default="1.5">Absolute angular speed</input_port>
+      <input_port name="duration" type="double" default="0.8">Movement duration in seconds</input_port>
     </Action>
-
+    <Action ID="TurtleMoveCircular">
+      <input_port name="linear_speed" type="double" default="2.0">Linear speed</input_port>
+      <input_port name="angular_speed" type="double" default="1.5">Angular speed</input_port>
+      <input_port name="duration" type="double" default="4.1888">Full-circle duration</input_port>
+    </Action>
   </TreeNodesModel>
-
 </root>

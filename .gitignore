@@ -23,3 +23,13 @@ venv/
 build/
 install/
 log/
+projeto_completo_codigo.docx
+export_project_to_word.py
+
+# Scripts e backups locais das alterações
+apply_bt_shapes.py
+apply_web_shapes.py
+backup_before_shapes_*/
+backup_web_before_shapes_*/
+*.backup_tick10
+declare_parameter

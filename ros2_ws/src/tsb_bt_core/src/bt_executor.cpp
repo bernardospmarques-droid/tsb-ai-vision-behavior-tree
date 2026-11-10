@@ -29,7 +29,7 @@ int main(int argc, char ** argv)
 
   const std::string tree_file =
     node->declare_parameter<std::string>("tree_file", default_tree_file);
-  const double tick_rate_hz = node->declare_parameter<double>("tick_rate_hz", 10.0);
+  const double tick_rate_hz = node->declare_parameter<double>("tick_rate_hz", 100.0);
   const int groot_port = node->declare_parameter<int>("groot_port", 1667);
   const bool print_models = node->declare_parameter<bool>("print_tree_nodes_model", false);
 const bool run_once = node->declare_parameter<bool>("run_once", false);  // Spin the node in a background thread so subscription callbacks keep

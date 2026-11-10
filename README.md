@@ -540,3 +540,15 @@ encerramento do executor corrigido;
 testes automatizados sem falhas;
 referências ao ambiente antigo removidas;
 comentários TODO residuais removidos.
+
+## Formas geometricas na Behavior Tree
+
+A arvore principal recebe `UP`, `DOWN`, `LEFT`, `RIGHT`, `SQUARE` e `CIRCLE` em `/vision/command`.
+A CNN continua a classificar apenas as quatro setas. `SQUARE` e `CIRCLE` sao comandos diretos da interface.
+
+- `LEFT` e `RIGHT`: velocidade angular 1.5 rad/s durante 1.0472 s, aproximadamente 90 graus.
+- `SQUARE`: `Repeat` de quatro ciclos, cada um com `UP` e `LEFT`.
+- `CIRCLE`: velocidades linear 2.0 e angular 1.5 simultaneamente durante 4.1888 s.
+- Raio aproximado: 2.0 / 1.5 = 1.333 unidades.
+- Monitorizacao Groot2: `localhost:1667`.
+

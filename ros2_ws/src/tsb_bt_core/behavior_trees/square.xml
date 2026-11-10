@@ -1,67 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <root BTCPP_format="4" main_tree_to_execute="DrawSquare">
-
-  <BehaviorTree ID="DrawSquare">
-
-    <Repeat num_cycles="4">
-
-      <Sequence name="DrawOneSide">
-
-        <TurtleMoveForward
-          name="MoveForward"
-          speed="2.0"
-          duration="1.5"/>
-
-        <TurtleRotate
-          name="RotateLeft90Degrees"
-          angular_speed="1.5708"
-          duration="1.0"/>
-
-      </Sequence>
-
-    </Repeat>
-
-  </BehaviorTree>
-
-  <TreeNodesModel>
-
-    <Action ID="TurtleMoveForward">
-
-      <input_port
-        name="speed"
-        type="double"
-        default="2.0">
-        Forward linear speed
-      </input_port>
-
-      <input_port
-        name="duration"
-        type="double"
-        default="1.5">
-        Movement duration
-      </input_port>
-
-    </Action>
-
-    <Action ID="TurtleRotate">
-
-      <input_port
-        name="angular_speed"
-        type="double"
-        default="1.5708">
-        Angular speed in radians per second
-      </input_port>
-
-      <input_port
-        name="duration"
-        type="double"
-        default="1.0">
-        Rotation duration
-      </input_port>
-
-    </Action>
-
-  </TreeNodesModel>
-
+  <BehaviorTree ID="DrawSquare"><Repeat name="RepeatFourSides" num_cycles="4"><Sequence name="DrawOneSide">
+    <MoveTurtle name="SquareForward" command="UP" linear_speed="2.0" angular_speed="1.5" duration="1.5"/>
+    <MoveTurtle name="SquareLeft90" command="LEFT" linear_speed="2.0" angular_speed="1.5" duration="1.0472"/>
+  </Sequence></Repeat></BehaviorTree>
+  <TreeNodesModel><Action ID="MoveTurtle">
+    <input_port name="command" type="std::string"/><input_port name="linear_speed" type="double" default="2.0"/>
+    <input_port name="angular_speed" type="double" default="1.5"/><input_port name="duration" type="double" default="0.8"/>
+  </Action></TreeNodesModel>
 </root>
