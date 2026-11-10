@@ -120,9 +120,9 @@ function publishShape(command) {
   if (command === 'SQUARE') {
     resultMessage.textContent = 'Quadrado enviado como polígono regular de 4 lados.';
   } else if (command === 'CIRCLE') {
-    resultMessage.textContent = 'Círculo enviado: velocidades linear e angular simultaneas.';
+    resultMessage.textContent = 'Círculo enviado: velocidades linear e angular simultâneas.';
   } else {
-    resultMessage.textContent = 'Poligono regular enviado para a Behavior Tree.';
+    resultMessage.textContent = 'Polígono regular enviado para a Behavior Tree.';
   }
 }
 squareButton.addEventListener('click', () => publishShape('SQUARE'));

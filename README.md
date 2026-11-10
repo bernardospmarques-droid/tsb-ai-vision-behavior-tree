@@ -149,7 +149,7 @@ O nome `SelectBehavior_REGULAR_POLYGON_fallback` identifica que `REGULAR_POLYGON
 Resultado registado:
 
 ```text
-18 tests, 0 errors, 0 failures, 6 skipped
+13 tests, 13 passed, 0 failed
 ```
 
 CNN no conjunto de teste:

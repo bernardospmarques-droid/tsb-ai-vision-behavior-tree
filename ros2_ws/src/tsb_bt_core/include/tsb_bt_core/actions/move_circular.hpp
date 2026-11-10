@@ -51,12 +51,12 @@ public:
 
       BT::InputPort<double>(
         "angular_speed",
-        1.0,
+        1.5,
         "Angular speed in radians per second"),
 
       BT::InputPort<double>(
         "duration",
-        6.283,
+        4.1888,
         "Movement duration in seconds")
     };
   }
