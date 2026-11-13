@@ -1,44 +1,42 @@
+
+*~
+add_web_clear_buttons.py
+apply_bt_shapes.py
+apply_regular_polygon.py
+apply_web_shapes.py
+backup_before_checkpoint_replacement/
+backup_before_final_docs_*/
+backup_before_regular_polygon_*/
+backup_before_shapes_*/
+backup_before_square_lock_*/
+backup_before_web_clear_buttons_*/
+backup_old_evidence/
+*.backup_tick10
+backup_web_before_shapes_*/
+build/
+# Colcon artefacts in any workspace root
+declare_parameter
+# Editors
+*.egg-info/
+export_project_to_word.py
+fix_square_and_switch_label.py
+.idea/
+install/
+log/
+projeto_completo_codigo.docx
+__pycache__/
+*.py[cod]
+.pytest_cache/
+# Python
 # ROS 2
 ros2_ws/build/
 ros2_ws/install/
 ros2_ws/log/
-
-# Python
-__pycache__/
-*.py[cod]
-*.egg-info/
-.pytest_cache/
-
-# Virtual environments
+# Scripts e backups locais das alterações
+*.swp
+update_final_documentation.py
 .venv/
 venv/
-
-# Editors
+# Virtual environments
 .vscode/
-.idea/
-*.swp
-*~
-
-# Colcon artefacts in any workspace root
-build/
-install/
-log/
-projeto_completo_codigo.docx
-export_project_to_word.py
-
-# Scripts e backups locais das alterações
-apply_bt_shapes.py
-apply_web_shapes.py
-backup_before_shapes_*/
-backup_web_before_shapes_*/
-*.backup_tick10
-declare_parameter
-
-apply_regular_polygon.py
-update_final_documentation.py
-backup_before_regular_polygon_*/
-backup_before_final_docs_*/
-add_web_clear_buttons.py
-backup_before_web_clear_buttons_*/
-fix_square_and_switch_label.py
-backup_before_square_lock_*/
+backup_before_conformity/

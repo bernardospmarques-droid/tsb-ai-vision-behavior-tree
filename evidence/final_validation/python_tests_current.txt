@@ -1,0 +1,19 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0 -- /home/bernardo/tsb_project_clean/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/bernardo/tsb_project_clean/ros2_ws/src/tsb_cv_brain
+configfile: pytest.ini
+testpaths: test
+plugins: ament-lint-0.17.5, launch-testing-3.4.10, launch-testing-ros-0.26.11, ament-pep257-0.17.5, ament-xmllint-0.17.5, ament-flake8-0.17.5, ament-copyright-0.17.5, colcon-core-0.20.1, cov-4.1.0
+collecting ... collected 8 items
+
+test/test_flake8.py::test_flake8 PASSED                                  [ 12%]
+test/test_image_processing.py::test_rgb8_output_shape PASSED             [ 25%]
+test/test_image_processing.py::test_bgr8_is_converted_to_rgb PASSED      [ 37%]
+test/test_image_processing.py::test_mono8_is_expanded_to_three_channels PASSED [ 50%]
+test/test_image_processing.py::test_unsupported_encoding_is_rejected PASSED [ 62%]
+test/test_model.py::test_model_output_shape PASSED                       [ 75%]
+test/test_model.py::test_checkpoint_is_compatible PASSED                 [ 87%]
+test/test_pep257.py::test_pep257 PASSED                                  [100%]
+
+============================== 8 passed in 2.07s ===============================

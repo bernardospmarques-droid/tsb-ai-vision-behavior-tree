@@ -1,0 +1,86 @@
+{
+  "checkpoint": "/home/bernardo/tsb_project_clean/evidence/checkpoint_reproduction/weights/arrow_cnn_best.pth",
+  "checkpoint_epoch": 26,
+  "device": "cpu",
+  "classes": [
+    "Down",
+    "Left",
+    "Right",
+    "Up"
+  ],
+  "class_to_index": {
+    "Down": 0,
+    "Left": 1,
+    "Right": 2,
+    "Up": 3
+  },
+  "test_images": 540,
+  "test_loss": 1.0815736210066394e-05,
+  "test_accuracy": 1.0,
+  "number_of_errors": 0,
+  "classification_report": {
+    "Down": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 125.0
+    },
+    "Left": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 138.0
+    },
+    "Right": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 138.0
+    },
+    "Up": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 139.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 540.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 540.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      125,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      138,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      138,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      139
+    ]
+  ]
+}

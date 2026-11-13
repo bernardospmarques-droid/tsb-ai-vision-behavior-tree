@@ -17,6 +17,7 @@ def generate_launch_description():
     tree_file = LaunchConfiguration('tree_file')
     model_path = LaunchConfiguration('model_path')
     groot_port = LaunchConfiguration('groot_port')
+    minimum_confidence = LaunchConfiguration('minimum_confidence')
 
     return LaunchDescription([
         DeclareLaunchArgument(
@@ -28,6 +29,9 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'groot_port', default_value='1667',
             description='Port used by Groot2 for live monitoring'),
+        DeclareLaunchArgument(
+            'minimum_confidence', default_value='0.75',
+            description='Minimum CNN confidence required to publish a command'),
 
         Node(
             package='turtlesim',
@@ -40,7 +44,11 @@ def generate_launch_description():
             executable='vision_node',
             name='vision_node',
             output='screen',
-            parameters=[{'model_path': ParameterValue(model_path, value_type=str)}],
+            parameters=[{
+                'model_path': ParameterValue(model_path, value_type=str),
+                'minimum_confidence': ParameterValue(
+                    minimum_confidence, value_type=float),
+            }],
         ),
         Node(
             package='tsb_bt_core',

@@ -1,0 +1,105 @@
+Starting >>> tsb_bt_core
+UpdateCTestConfiguration  from :/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/CTestConfiguration.ini
+Parse Config file:/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/CTestConfiguration.ini
+   Site: ROG-X16
+   Build name: (empty)
+ Add coverage exclude regular expressions.
+Create new tag: 20261113-1703 - Experimental
+UpdateCTestConfiguration  from :/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/CTestConfiguration.ini
+Parse Config file:/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/CTestConfiguration.ini
+Test project /home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: cppcheck
+
+1: Test command: /home/bernardo/tsb_project_clean/.venv/bin/python3 "-u" "/opt/ros/jazzy/share/ament_cmake_test/cmake/run_test.py" "/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/cppcheck.xunit.xml" "--package-name" "tsb_bt_core" "--output-file" "/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/ament_cppcheck/cppcheck.txt" "--command" "/opt/ros/jazzy/bin/ament_cppcheck" "--xunit-file" "/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/cppcheck.xunit.xml" "--include_dirs" "/home/bernardo/tsb_project_clean/ros2_ws/src/tsb_bt_core/include"
+1: Working Directory: /home/bernardo/tsb_project_clean/ros2_ws/src/tsb_bt_core
+1: Test timeout computed to be: 300
+1: -- run_test.py: invoking following command in '/home/bernardo/tsb_project_clean/ros2_ws/src/tsb_bt_core':
+1:  - /opt/ros/jazzy/bin/ament_cppcheck --xunit-file /home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/cppcheck.xunit.xml --include_dirs /home/bernardo/tsb_project_clean/ros2_ws/src/tsb_bt_core/include
+1: cppcheck 2.13.0 has known performance issues and therefore will not be used, set the AMENT_CPPCHECK_ALLOW_SLOW_VERSIONS environment variable to override this.
+1: -- run_test.py: return code 0
+1: -- run_test.py: verify result file '/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/cppcheck.xunit.xml'
+1/5 Test #1: cppcheck .........................   Passed    0.22 sec
+test 2
+    Start 2: flake8
+
+2: Test command: /home/bernardo/tsb_project_clean/.venv/bin/python3 "-u" "/opt/ros/jazzy/share/ament_cmake_test/cmake/run_test.py" "/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/flake8.xunit.xml" "--package-name" "tsb_bt_core" "--output-file" "/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/ament_flake8/flake8.txt" "--command" "/opt/ros/jazzy/bin/ament_flake8" "--xunit-file" "/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/flake8.xunit.xml"
+2: Working Directory: /home/bernardo/tsb_project_clean/ros2_ws/src/tsb_bt_core
+2: Test timeout computed to be: 60
+2: -- run_test.py: invoking following command in '/home/bernardo/tsb_project_clean/ros2_ws/src/tsb_bt_core':
+2:  - /opt/ros/jazzy/bin/ament_flake8 --xunit-file /home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/flake8.xunit.xml
+2:
+2: 1 files checked
+2: No problems found
+2:
+2: Checked files:
+2:
+2: * ./launch/challenge.launch.py
+2: -- run_test.py: return code 0
+2: -- run_test.py: verify result file '/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/flake8.xunit.xml'
+2/5 Test #2: flake8 ...........................   Passed    0.41 sec
+test 3
+    Start 3: lint_cmake
+
+3: Test command: /home/bernardo/tsb_project_clean/.venv/bin/python3 "-u" "/opt/ros/jazzy/share/ament_cmake_test/cmake/run_test.py" "/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/lint_cmake.xunit.xml" "--package-name" "tsb_bt_core" "--output-file" "/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/ament_lint_cmake/lint_cmake.txt" "--command" "/opt/ros/jazzy/bin/ament_lint_cmake" "--xunit-file" "/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/lint_cmake.xunit.xml"
+3: Working Directory: /home/bernardo/tsb_project_clean/ros2_ws/src/tsb_bt_core
+3: Test timeout computed to be: 60
+3: -- run_test.py: invoking following command in '/home/bernardo/tsb_project_clean/ros2_ws/src/tsb_bt_core':
+3:  - /opt/ros/jazzy/bin/ament_lint_cmake --xunit-file /home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/lint_cmake.xunit.xml
+3:
+3: No problems found
+3: -- run_test.py: return code 0
+3: -- run_test.py: verify result file '/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/lint_cmake.xunit.xml'
+3/5 Test #3: lint_cmake .......................   Passed    0.19 sec
+test 4
+    Start 4: pep257
+
+4: Test command: /home/bernardo/tsb_project_clean/.venv/bin/python3 "-u" "/opt/ros/jazzy/share/ament_cmake_test/cmake/run_test.py" "/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/pep257.xunit.xml" "--package-name" "tsb_bt_core" "--output-file" "/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/ament_pep257/pep257.txt" "--command" "/opt/ros/jazzy/bin/ament_pep257" "--xunit-file" "/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/pep257.xunit.xml"
+4: Working Directory: /home/bernardo/tsb_project_clean/ros2_ws/src/tsb_bt_core
+4: Test timeout computed to be: 60
+4: -- run_test.py: invoking following command in '/home/bernardo/tsb_project_clean/ros2_ws/src/tsb_bt_core':
+4:  - /opt/ros/jazzy/bin/ament_pep257 --xunit-file /home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/pep257.xunit.xml
+4: checking ./launch/challenge.launch.py
+4: No problems found
+4: -- run_test.py: return code 0
+4: -- run_test.py: verify result file '/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/pep257.xunit.xml'
+4/5 Test #4: pep257 ...........................   Passed    0.23 sec
+test 5
+    Start 5: xmllint
+
+5: Test command: /home/bernardo/tsb_project_clean/.venv/bin/python3 "-u" "/opt/ros/jazzy/share/ament_cmake_test/cmake/run_test.py" "/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/xmllint.xunit.xml" "--package-name" "tsb_bt_core" "--output-file" "/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/ament_xmllint/xmllint.txt" "--command" "/opt/ros/jazzy/bin/ament_xmllint" "--xunit-file" "/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/xmllint.xunit.xml"
+5: Working Directory: /home/bernardo/tsb_project_clean/ros2_ws/src/tsb_bt_core
+5: Test timeout computed to be: 60
+5: -- run_test.py: invoking following command in '/home/bernardo/tsb_project_clean/ros2_ws/src/tsb_bt_core':
+5:  - /opt/ros/jazzy/bin/ament_xmllint --xunit-file /home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/xmllint.xunit.xml
+5: File 'package.xml' is valid
+5:
+5: File 'behavior_trees/tree.xml' is valid
+5:
+5: File 'behavior_trees/tree_prepost_demo.xml' is valid
+5:
+5: No problems found
+5: -- run_test.py: return code 0
+5: -- run_test.py: verify result file '/home/bernardo/tsb_project_clean/ros2_ws/build/tsb_bt_core/test_results/tsb_bt_core/xmllint.xunit.xml'
+5/5 Test #5: xmllint ..........................   Passed    0.89 sec
+
+100% tests passed, 0 tests failed out of 5
+
+Label Time Summary:
+cppcheck      =   0.22 sec*proc (1 test)
+flake8        =   0.41 sec*proc (1 test)
+lint_cmake    =   0.19 sec*proc (1 test)
+linter        =   1.94 sec*proc (5 tests)
+pep257        =   0.23 sec*proc (1 test)
+xmllint       =   0.89 sec*proc (1 test)
+
+Total Test time (real) =   1.95 sec
+Finished <<< tsb_bt_core [2.20s]
+
+Summary: 1 package finished [2.41s]

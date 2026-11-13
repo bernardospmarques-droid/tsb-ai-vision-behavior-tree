@@ -1,8 +1,11 @@
-# Python dependencies not provided by ROS 2 / rosdep.
-# Install with: pip install -r src/tsb_cv_brain/requirements.txt
-# (For a CPU-only build: pip install torch --index-url https://download.pytorch.org/whl/cpu)
+# Python dependencies not supplied directly by ROS 2 / rosdep.
+# Versions effectively installed are recorded in:
+# evidence/dependencies/python_environment.txt
 torch>=2.0
-
+torchvision
 numpy>=1.26
-
 Pillow>=10.0
+scikit-learn
+matplotlib
+seaborn
+tqdm

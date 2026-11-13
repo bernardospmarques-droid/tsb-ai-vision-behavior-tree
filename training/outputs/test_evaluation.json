@@ -1,7 +1,7 @@
 {
-  "checkpoint": "/home/bernardo/sa_recrutamento_ai/training/weights/arrow_cnn_best.pth",
+  "checkpoint": "/home/bernardo/tsb_project_clean/evidence/checkpoint_reproduction/weights/arrow_cnn_best.pth",
   "checkpoint_epoch": 26,
-  "device": "cuda",
+  "device": "cpu",
   "classes": [
     "Down",
     "Left",
@@ -15,7 +15,7 @@
     "Up": 3
   },
   "test_images": 540,
-  "test_loss": 2.1843400039263845e-05,
+  "test_loss": 1.0815736210066394e-05,
   "test_accuracy": 1.0,
   "number_of_errors": 0,
   "classification_report": {
