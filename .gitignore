@@ -40,3 +40,7 @@ venv/
 # Virtual environments
 .vscode/
 backup_before_conformity/
+.venv_export/
+prepost_automation_context.txt
+prepost_backup_*/
+prepost_final_backup_*/

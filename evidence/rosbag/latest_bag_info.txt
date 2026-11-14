@@ -14,4 +14,4 @@ Topic information: Topic: /rosout | Type: rcl_interfaces/msg/Log | Count: 175 | 
                    Topic: /vision/command | Type: std_msgs/msg/String | Count: 8 | Serialization Format: cdr
                    Topic: /vision/image | Type: sensor_msgs/msg/Image | Count: 4 | Serialization Format: cdr
 Service:           0
-Service information:
+Service information: 

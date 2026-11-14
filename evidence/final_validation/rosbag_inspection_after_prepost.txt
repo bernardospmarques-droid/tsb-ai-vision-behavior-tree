@@ -1,0 +1,18 @@
+[INFO] Bag: /home/bernardo/tsb_project_clean/evidence/rosbag/integrated_20261113_170856
+
+Files:             integrated_20261113_170856_0.mcap
+Bag size:          2.4 MiB
+Storage id:        mcap
+ROS Distro:        jazzy
+Duration:          192.717422863s
+Start:             Nov 13 2026 17:08:58.125549538 (1794589738.125549538)
+End:               Nov 13 2026 17:12:10.842972401 (1794589930.842972401)
+Messages:          15114
+Topic information: Topic: /rosout | Type: rcl_interfaces/msg/Log | Count: 175 | Serialization Format: cdr
+                   Topic: /turtle1/cmd_vel | Type: geometry_msgs/msg/Twist | Count: 3286 | Serialization Format: cdr
+                   Topic: /turtle1/pose | Type: turtlesim/msg/Pose | Count: 11637 | Serialization Format: cdr
+                   Topic: /vision/canvas_png | Type: std_msgs/msg/String | Count: 4 | Serialization Format: cdr
+                   Topic: /vision/command | Type: std_msgs/msg/String | Count: 8 | Serialization Format: cdr
+                   Topic: /vision/image | Type: sensor_msgs/msg/Image | Count: 4 | Serialization Format: cdr
+Service:           0
+Service information: 

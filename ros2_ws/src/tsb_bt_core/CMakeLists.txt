@@ -57,6 +57,20 @@ install(DIRECTORY behavior_trees launch
 # ------------------------------------------------------------------ tests
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
+
+  add_executable(
+    test_prepost_conditions
+    test/test_prepost_conditions.cpp
+  )
+  ament_target_dependencies(
+    test_prepost_conditions
+    behaviortree_cpp
+  )
+  add_test(
+    NAME test_prepost_conditions
+    COMMAND test_prepost_conditions
+  )
+
   # Skip checks that are noisy for a challenge skeleton
   set(ament_cmake_copyright_FOUND TRUE)
   set(ament_cmake_cpplint_FOUND TRUE)

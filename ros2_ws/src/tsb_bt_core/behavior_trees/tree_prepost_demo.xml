@@ -32,6 +32,66 @@
   <BehaviorTree ID="DrawCircle">
     <TurtleMoveCircular name="DrawFullCircle" linear_speed="{circle_linear_speed}" angular_speed="{circle_angular_speed}" duration="{circle_duration}" />
   </BehaviorTree>
+
+  <!--
+    BehaviorTree.CPP v4 pre/post-condition compliance tree.
+
+    This tree is independent from MainTree and therefore does not change
+    the production behavior, Groot2 layout, web interface or turtle motion.
+    Functional state and blackboard assertions are implemented in the
+    accompanying C++ test.
+  -->
+  <BehaviorTree ID="PrePostConditionsCompliance">
+    <Sequence name="PrePostConditionsDemonstration">
+      <Script
+        name="InitializeComplianceBlackboard"
+        code="skip_requested := true;
+              failure_requested := true;
+              success_requested := true;
+              continue_running := false;
+              success_hook := false;
+              failure_hook := false;
+              post_hook := false;
+              halted_hook := false" />
+
+      <AlwaysFailure
+        name="SkipIfExample"
+        _skipIf="skip_requested" />
+
+      <AlwaysSuccess
+        name="FailureIfExample"
+        _failureIf="failure_requested" />
+
+      <AlwaysFailure
+        name="SuccessIfExample"
+        _successIf="success_requested" />
+
+      <AlwaysSuccess
+        name="WhileExample"
+        _while="continue_running" />
+
+      <AlwaysSuccess
+        name="OnSuccessExample"
+        _onSuccess="success_hook = true" />
+
+      <ForceSuccess name="AllowFailureHookDemonstration">
+        <AlwaysFailure
+          name="OnFailureExample"
+          _onFailure="failure_hook = true" />
+      </ForceSuccess>
+
+      <AlwaysSuccess
+        name="PostExample"
+        _post="post_hook = true" />
+
+      <!--
+        _onHalted requires interruption while a node is RUNNING.
+        It is tested dynamically in test_prepost_conditions.cpp.
+      -->
+      <AlwaysSuccess name="ComplianceTreeCompleted" />
+    </Sequence>
+  </BehaviorTree>
+
   <TreeNodesModel>
     <Action ID="GetVisionCommand">
       <output_port name="command" type="std::string">UP, DOWN, LEFT, RIGHT, SQUARE, CIRCLE or REGULAR_POLYGON</output_port>

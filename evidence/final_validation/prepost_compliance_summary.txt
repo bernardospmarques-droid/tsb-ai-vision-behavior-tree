@@ -1,0 +1,15 @@
+BehaviorTree.CPP pre/post-condition compliance
+Date: 2026-11-14T01:04:39+00:00
+Environment: ROS 2 Jazzy / BehaviorTree.CPP 4.10.0
+
+PASS _skipIf
+PASS _failureIf
+PASS _successIf
+PASS _while
+PASS _onSuccess
+PASS _onFailure
+PASS _post
+PASS _onHalted
+
+colcon result:
+20 tests, 0 errors, 0 failures, 8 skipped
