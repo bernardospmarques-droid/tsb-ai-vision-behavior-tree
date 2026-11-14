@@ -46,7 +46,7 @@ python3 "$ROOT/training/evaluate.py" \
 
 sha256sum \
   "$ROOT/training/weights/arrow_cnn_best.pth" \
-  "$WEIGHTS/arrow_cnn_best.pth" \
+  "$ROOT/ros2_ws/src/tsb_cv_brain/models/arrow_cnn_best.pth" \
   | tee "$ROOT/evidence/final_validation/checkpoint_sha256.txt"
 
 echo

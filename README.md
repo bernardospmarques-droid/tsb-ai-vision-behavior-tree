@@ -146,12 +146,6 @@ O nome `SelectBehavior_REGULAR_POLYGON_fallback` identifica que `REGULAR_POLYGON
 
 ## Testes e resultados
 
-Resultado registado:
-
-```text
-13 tests, 13 passed, 0 failed
-```
-
 CNN no conjunto de teste:
 
 ```text
@@ -165,7 +159,7 @@ A accuracy perfeita deve ser interpretada apenas dentro da distribuição do dat
 ## Evidências
 
 - Logs: `evidence/square/`, `evidence/circle/`, `evidence/regular_polygon/`.
-- Avaliação da CNN: `training/outputs/` e `evidence/model_evaluation.md`.
+- Avaliação da CNN: `training/outputs/` e a secção "Avaliação do modelo e análise de overfitting" deste README.
 - Vídeo final integrado: `evidence/final_validation/final_integrated_demo.mp4`.
 
 ## Estado validado
@@ -190,14 +184,89 @@ parte do checkpoint da CNN.
 ## Estado atual validado
 
 - Checkpoint oficial: `training/weights/arrow_cnn_best.pth`
-- Checkpoint ROS 2:
-  `ros2_ws/src/tsb_cv_brain/models/arrow_cnn_best.pth`
-- SHA-256: `3cf85fdda9b1f8e2d1f4abbc571196417aeed8d8aa3359d55b7f7658da2c3a2e`
-- Resultados atuais: `training/outputs/`
-- Evidências atuais: `evidence/final_validation/`
-- Testes Python: 8 aprovados.
-- Testes ROS 2: 20 testes, 0 erros e 0 falhas.
-- Checkpoints de treino e produção binariamente iguais.
+- Checkpoint ROS 2: `ros2_ws/src/tsb_cv_brain/models/arrow_cnn_best.pth`
+- SHA-256 dos dois checkpoints: `3cf85fdda9b1f8e2d1f4abbc571196417aeed8d8aa3359d55b7f7658da2c3a2e`
+- Resultados atuais do modelo: `training/outputs/`
+- Evidencias atuais: `evidence/final_validation/`
+- Testes Python: `8 passed in 3.13s`.
+- Testes ROS 2 e C++: `Summary: 18 tests, 0 errors, 0 failures, 6 skipped`.
+- Checkpoints de treino e producao binariamente iguais.
+- Fonte oficial do resultado ROS 2/C++:
+  `evidence/final_validation/colcon_test.txt`.
 
-As evidências antigas e as cópias duplicadas foram removidas.
+Resultados antigos, checkpoints substituidos e evidencias documentais
+duplicadas foram removidos.
 <!-- CURRENT_VALIDATION_END -->
+
+<!-- CONSOLIDATED_EVIDENCE_START -->
+## Evidencias e interpretacao consolidadas
+
+### Avaliacao do modelo e analise de overfitting
+
+## Resultados
+
+O modelo foi treinado durante 30 épocas para classificar Down, Left, Right e Up.
+
+No conjunto de teste com 540 imagens foram obtidos:
+
+- accuracy global de 1.0;
+- zero classificações incorretas;
+- precision de 1.0 em todas as classes;
+- recall de 1.0 em todas as classes;
+- F1-score de 1.0 em todas as classes;
+- matriz de confusão totalmente diagonal.
+
+## Interpretação das curvas
+
+As curvas de treino e validação convergem rapidamente para valores de accuracy próximos de 100%.
+Não existe uma separação persistente entre a accuracy de treino e a accuracy de validação.
+
+O training loss e o validation loss diminuem para valores muito baixos. Apesar de pequenas oscilações pontuais no validation loss, não existe uma tendência sustentada de aumento enquanto o training loss continua a diminuir.
+
+O padrão clássico de overfitting seria o training loss continuar a diminuir enquanto o validation loss aumenta e a validation accuracy estabiliza ou diminui. Esse padrão não é observado de forma persistente.
+
+## Limitação da conclusão
+
+A accuracy perfeita deve ser interpretada com prudência. As imagens de treino, validação e teste provêm da mesma fonte e podem partilhar estilo, cores, fundos, enquadramentos e condições de iluminação.
+
+Os resultados demonstram excelente desempenho dentro da distribuição do dataset, mas não garantem automaticamente igual desempenho em imagens externas.
+
+## Validação futura recomendada
+
+- setas desenhadas manualmente;
+- imagens adquiridas por outra câmara;
+- fundos e condições de iluminação diferentes;
+- rotações e escalas mais extremas;
+- ruído, desfocagem e oclusão parcial;
+- estilos e cores ausentes do treino.
+
+## Conclusão
+
+Os resultados disponíveis não mostram evidência clara do padrão clássico de overfitting. O modelo generaliza corretamente para o conjunto de teste utilizado, mas a conclusão deve ser limitada ao domínio do dataset até existir validação com dados externos.
+
+### Evidencia da interface web
+
+O vídeo final demonstra conjuntamente a página web, o Groot2 e o Turtlesim:
+
+```text
+../final_validation/final_integrated_demo.mp4
+```
+
+Os comandos `SQUARE`, `CIRCLE` e `REGULAR_POLYGON` são publicados diretamente em `/vision/command`. As setas passam por `canvas_bridge` e pela CNN.
+
+### Evidencia e utilizacao do Groot2
+
+- Árvore: `MainTree`.
+- Editor: `ros2_ws/src/tsb_bt_core/behavior_trees/tree.xml`.
+- Monitor: `localhost:1667`.
+- O Monitor é apenas de leitura.
+- Depois de guardar o XML, reiniciar o `bt_executor`.
+
+A subárvore `DrawRegularPolygon` contém `CalculateTurnDuration`, `RepeatPolygonSides`, `PolygonMove` e `PolygonTurn`.
+
+A evidência atual está no vídeo integrado:
+
+```text
+../final_validation/final_integrated_demo.mp4
+```
+<!-- CONSOLIDATED_EVIDENCE_END -->

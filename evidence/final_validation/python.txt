@@ -16,4 +16,4 @@ test/test_model.py::test_model_output_shape PASSED                       [ 75%]
 test/test_model.py::test_checkpoint_is_compatible PASSED                 [ 87%]
 test/test_pep257.py::test_pep257 PASSED                                  [100%]
 
-============================== 8 passed in 2.59s ===============================
+============================== 8 passed in 3.13s ===============================

@@ -1,6 +1,6 @@
 # Python dependencies not supplied directly by ROS 2 / rosdep.
 # Versions effectively installed are recorded in:
-# evidence/dependencies/python_environment.txt
+# Ambiente validado em evidence/final_validation/validation_manifest.txt
 torch>=2.0
 torchvision
 numpy>=1.26

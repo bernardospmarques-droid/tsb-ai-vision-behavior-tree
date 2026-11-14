@@ -170,6 +170,6 @@ echo
 echo "============================================"
 echo "ARRANQUE CONCLUIDO"
 echo "Web: http://localhost:8000/index.html"
-echo "Limite de confianca: 0.80"
+echo "Limite de confianca: 0.75"
 echo "Logs: $LOGS"
 echo "============================================"

@@ -1,0 +1,17 @@
+
+Files:             integrated_20261114_221401_0.mcap
+Bag size:          2.2 MiB
+Storage id:        mcap
+ROS Distro:        jazzy
+Duration:          93.742608992s
+Start:             Nov 14 2026 22:14:02.336295514 (1794694442.336295514)
+End:               Nov 14 2026 22:15:36.078904506 (1794694536.078904506)
+Messages:          8577
+Topic information: Topic: /rosout | Type: rcl_interfaces/msg/Log | Count: 102 | Serialization Format: cdr
+                   Topic: /turtle1/cmd_vel | Type: geometry_msgs/msg/Twist | Count: 2948 | Serialization Format: cdr
+                   Topic: /turtle1/pose | Type: turtlesim/msg/Pose | Count: 5509 | Serialization Format: cdr
+                   Topic: /vision/canvas_png | Type: std_msgs/msg/String | Count: 5 | Serialization Format: cdr
+                   Topic: /vision/command | Type: std_msgs/msg/String | Count: 8 | Serialization Format: cdr
+                   Topic: /vision/image | Type: sensor_msgs/msg/Image | Count: 5 | Serialization Format: cdr
+Service:           0
+Service information:
