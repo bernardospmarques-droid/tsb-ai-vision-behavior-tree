@@ -44,3 +44,7 @@ backup_before_conformity/
 prepost_automation_context.txt
 prepost_backup_*/
 prepost_final_backup_*/
+# Local runtime and automatic backups
+runtime_logs/
+backup_before_unknown_*/
+start_complete_system_before_canvas_bridge.sh

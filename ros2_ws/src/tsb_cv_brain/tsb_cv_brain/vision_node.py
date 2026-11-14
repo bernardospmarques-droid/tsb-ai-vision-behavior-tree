@@ -33,7 +33,7 @@ class VisionNode(Node):
         self.declare_parameter("image_topic", "/vision/image")
         self.declare_parameter("command_topic", "/vision/command")
         self.declare_parameter("model_path", "")
-        self.declare_parameter("minimum_confidence", 0.0)
+        self.declare_parameter("minimum_confidence", 0.75)
 
         image_topic = self.get_parameter("image_topic").value
         command_topic = self.get_parameter("command_topic").value
@@ -198,14 +198,28 @@ class VisionNode(Node):
             command = CLASS_TO_COMMAND[class_name]
             confidence_value = float(confidence.item())
 
+            output_message = String()
+
             if confidence_value < self.minimum_confidence:
+                output_message.data = "UNKNOWN"
+
+                self.command_publisher.publish(
+                    output_message
+                )
+
+                latency_ms = (
+                    time.perf_counter() - start_time
+                ) * 1000.0
+
                 self.get_logger().warning(
-                    f"Ignored {command}: confidence "
-                    f"{confidence_value:.3f}"
+                    f"Prediction rejected: {command}; "
+                    f"confidence={confidence_value:.3f}; "
+                    f"threshold={self.minimum_confidence:.3f}; "
+                    f"published=UNKNOWN; "
+                    f"latency={latency_ms:.1f} ms"
                 )
                 return
 
-            output_message = String()
             output_message.data = command
 
             self.command_publisher.publish(
