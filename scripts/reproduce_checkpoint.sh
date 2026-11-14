@@ -3,9 +3,9 @@ set -eo pipefail
 
 ROOT="$HOME/tsb_project_clean"
 DATASET="${1:-$HOME/sa_recrutamento_ai/dataset/arrow_dataset/extracted/Direction}"
-OUTPUT="$ROOT/evidence/checkpoint_reproduction/outputs"
-WEIGHTS="$ROOT/evidence/checkpoint_reproduction/weights"
-LOG="$ROOT/evidence/checkpoint_reproduction/retraining.log"
+OUTPUT="$ROOT/training/outputs"
+WEIGHTS="$ROOT/training/weights"
+LOG="${TMPDIR:-/tmp}/tsb_training.log"
 
 cd "$ROOT"
 source /opt/ros/jazzy/setup.bash
@@ -21,7 +21,7 @@ fi
 mkdir -p "$OUTPUT" "$WEIGHTS"
 
 python3 "$ROOT/training/check_duplicates.py" \
-  2>&1 | tee "$ROOT/evidence/checkpoint_reproduction/duplicates.log"
+  2>&1 | tee "$ROOT/training/outputs/duplicates.log"
 
 python3 "$ROOT/training/train.py" \
   --dataset "$DATASET" \
@@ -42,12 +42,12 @@ python3 "$ROOT/training/evaluate.py" \
   --batch-size 64 \
   --workers 2 \
   --seed 42 \
-  2>&1 | tee "$ROOT/evidence/checkpoint_reproduction/evaluation.log"
+  2>&1 | tee "${TMPDIR:-/tmp}/tsb_evaluation.log"
 
 sha256sum \
   "$ROOT/training/weights/arrow_cnn_best.pth" \
   "$WEIGHTS/arrow_cnn_best.pth" \
-  | tee "$ROOT/evidence/checkpoint_reproduction/checkpoint_hashes.txt"
+  | tee "$ROOT/evidence/final_validation/checkpoint_sha256.txt"
 
 echo
 echo "[OK] Reproducao concluida."

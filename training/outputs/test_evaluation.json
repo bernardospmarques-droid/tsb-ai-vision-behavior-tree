@@ -1,5 +1,5 @@
 {
-  "checkpoint": "/home/bernardo/tsb_project_clean/evidence/checkpoint_reproduction/weights/arrow_cnn_best.pth",
+  "checkpoint": "/home/bernardo/tsb_project_clean/training/weights/arrow_cnn_best.pth",
   "checkpoint_epoch": 26,
   "device": "cpu",
   "classes": [

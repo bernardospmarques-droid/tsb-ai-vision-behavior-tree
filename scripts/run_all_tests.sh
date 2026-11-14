@@ -22,14 +22,14 @@ source install/setup.bash
 colcon test \
   --packages-select tsb_bt_core \
   --event-handlers console_direct+ \
-  2>&1 | tee "$OUT/bt_tests_current.txt"
+  2>&1 | tee "$OUT/colcon_test.txt"
 
 colcon test-result --verbose \
-  2>&1 | tee "$OUT/colcon_test_results_current.txt"
+  2>&1 | tee "$OUT/colcon_test.txt"
 
 cd "$WS/src/tsb_cv_brain"
 python3 -m pytest -v \
-  2>&1 | tee "$OUT/python_tests_current.txt"
+  2>&1 | tee "$OUT/python.txt"
 
 python3 -m py_compile \
   tsb_cv_brain/*.py \

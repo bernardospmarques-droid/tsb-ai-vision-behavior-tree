@@ -48,3 +48,7 @@ prepost_final_backup_*/
 runtime_logs/
 backup_before_unknown_*/
 start_complete_system_before_canvas_bridge.sh
+
+# Raw training and evaluation logs
+training/outputs/training.log
+training/outputs/evaluation.log

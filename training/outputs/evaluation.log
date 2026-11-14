@@ -1,31 +1,0 @@
-Device: cpu
-Checkpoint epoch: 26
-Checkpoint validation loss: 1.413085830831378e-05
-Checkpoint validation accuracy: 1.0
-Checkpoint classes: ['Down', 'Left', 'Right', 'Up']
-Testing:   0%|          | 0/9 [00:00<?, ?it/s]Testing:  11%|█         | 1/9 [00:00<00:02,  3.29it/s]Testing:  22%|██▏       | 2/9 [00:00<00:01,  4.39it/s]Testing:  33%|███▎      | 3/9 [00:00<00:01,  4.97it/s]Testing:  44%|████▍     | 4/9 [00:00<00:00,  5.34it/s]Testing:  56%|█████▌    | 5/9 [00:00<00:00,  5.47it/s]Testing:  67%|██████▋   | 6/9 [00:01<00:00,  5.53it/s]Testing:  78%|███████▊  | 7/9 [00:01<00:00,  5.72it/s]Testing:  89%|████████▉ | 8/9 [00:01<00:00,  5.83it/s]Testing: 100%|██████████| 9/9 [00:01<00:00,  5.74it/s]
-No misclassified images were found.
-
-Test loss: 0.000011
-Test accuracy: 1.000000
-Correct predictions: 540
-Incorrect predictions: 0
-
-              precision    recall  f1-score   support
-
-        Down       1.00      1.00      1.00       125
-        Left       1.00      1.00      1.00       138
-       Right       1.00      1.00      1.00       138
-          Up       1.00      1.00      1.00       139
-
-    accuracy                           1.00       540
-   macro avg       1.00      1.00      1.00       540
-weighted avg       1.00      1.00      1.00       540
-
-Confusion matrix:
-[[125   0   0   0]
- [  0 138   0   0]
- [  0   0 138   0]
- [  0   0   0 139]]
-
-Results saved in: /home/bernardo/tsb_project_clean/evidence/checkpoint_reproduction/outputs

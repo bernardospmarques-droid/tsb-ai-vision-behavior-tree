@@ -173,3 +173,31 @@ A accuracy perfeita deve ser interpretada apenas dentro da distribuição do dat
 - Branch: `main`.
 - Vídeo final comprimido e incluído no Git.
 - Blackboard, web, CNN, formas e Turtlesim integrados.
+
+## Limiar de confiança
+
+O nó de visão aplica um limiar mínimo configurável através do parâmetro
+ROS 2 `minimum_confidence`, cujo valor predefinido é `0.75`.
+
+- Confiança inferior a `0.75`: publica `UNKNOWN`.
+- Confiança igual ou superior a `0.75`: publica `UP`, `DOWN`, `LEFT` ou
+  `RIGHT`.
+
+O limiar é aplicado em `vision_node.py` depois da inferência e não faz
+parte do checkpoint da CNN.
+
+<!-- CURRENT_VALIDATION_START -->
+## Estado atual validado
+
+- Checkpoint oficial: `training/weights/arrow_cnn_best.pth`
+- Checkpoint ROS 2:
+  `ros2_ws/src/tsb_cv_brain/models/arrow_cnn_best.pth`
+- SHA-256: `3cf85fdda9b1f8e2d1f4abbc571196417aeed8d8aa3359d55b7f7658da2c3a2e`
+- Resultados atuais: `training/outputs/`
+- Evidências atuais: `evidence/final_validation/`
+- Testes Python: 8 aprovados.
+- Testes ROS 2: 20 testes, 0 erros e 0 falhas.
+- Checkpoints de treino e produção binariamente iguais.
+
+As evidências antigas e as cópias duplicadas foram removidas.
+<!-- CURRENT_VALIDATION_END -->

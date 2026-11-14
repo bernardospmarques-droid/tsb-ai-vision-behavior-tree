@@ -1,2 +1,0 @@
-4ca31c08286713455884bea36ef10d848d1ae7654c54f2676764a5a74df867ac  /home/bernardo/tsb_project_clean/training/weights/arrow_cnn_best.pth
-3cf85fdda9b1f8e2d1f4abbc571196417aeed8d8aa3359d55b7f7658da2c3a2e  /home/bernardo/tsb_project_clean/evidence/checkpoint_reproduction/weights/arrow_cnn_best.pth

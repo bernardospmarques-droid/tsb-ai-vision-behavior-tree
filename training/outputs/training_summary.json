@@ -16,5 +16,5 @@
   "best_validation_loss": 1.413085830831378e-05,
   "best_validation_accuracy": 1.0,
   "elapsed_seconds": 551.0324323177338,
-  "best_model": "/home/bernardo/tsb_project_clean/evidence/checkpoint_reproduction/weights/arrow_cnn_best.pth"
+  "best_model": "/home/bernardo/tsb_project_clean/training/weights/arrow_cnn_best.pth"
 }
