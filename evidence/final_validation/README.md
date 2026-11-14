@@ -13,11 +13,11 @@ atual validado do projeto.
 
 ## Resultados atuais
 
-- Python: 8 testes aprovados em 2.05 segundos.
-- Tempo total Python: 2.79 segundos.
-- Colcon: 20 testes, 0 erros e 0 falhas.
-- Oito testes foram ignorados pelo sistema de testes ROS 2.
-- As oito pre/post conditions do BehaviorTree.CPP passaram.
+- Python: 8 testes aprovados.
+- ROS 2/C++: 18 testes, 0 erros e 0 falhas.
+- Seis testes foram ignorados pelo sistema de testes ROS 2.
+- As oito pre/post conditions do BehaviorTree.CPP foram executadas com sucesso
+  pelo teste C++ incluído em `tsb_bt_core`.
 
 ## Checkpoint oficial
 

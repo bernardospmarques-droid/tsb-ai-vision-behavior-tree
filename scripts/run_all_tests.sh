@@ -19,14 +19,16 @@ colcon build \
 
 source install/setup.bash
 
-colcon test \
-  --packages-select tsb_bt_core \
-  --event-handlers console_direct+ \
-  2>&1 | tee "$OUT/colcon_test.txt"
+{
+  echo "=== COLCON TEST ==="
+  colcon test \
+    --packages-select tsb_bt_core \
+    --event-handlers console_direct+
 
-colcon test-result --verbose \
-  2>&1 | tee "$OUT/colcon_test.txt"
-
+  echo
+  echo "=== COLCON TEST RESULT ==="
+  colcon test-result --verbose
+} 2>&1 | tee "$OUT/colcon_test.txt"
 cd "$WS/src/tsb_cv_brain"
 python3 -m pytest -v \
   2>&1 | tee "$OUT/python.txt"

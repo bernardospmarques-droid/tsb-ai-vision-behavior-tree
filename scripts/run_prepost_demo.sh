@@ -5,6 +5,7 @@ ROOT="$HOME/tsb_project_clean"
 WS="$ROOT/ros2_ws"
 TREE="$WS/src/tsb_bt_core/behavior_trees/tree_prepost_demo.xml"
 LOG="$ROOT/evidence/pre_post_conditions/execution.log"
+mkdir -p "$(dirname "$LOG")"
 
 source /opt/ros/jazzy/setup.bash
 source "$ROOT/.venv/bin/activate"
