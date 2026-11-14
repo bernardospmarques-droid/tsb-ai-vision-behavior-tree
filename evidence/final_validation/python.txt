@@ -1,7 +1,5 @@
-PYTHON_EXECUTABLE=/home/bernardo/tsb_project_clean/.venv/bin/python
-TORCH_VERSION=2.15.0+cpu
 ============================= test session starts ==============================
-platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0 -- /home/bernardo/tsb_project_clean/.venv/bin/python
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0 -- /home/bernardo/tsb_project_clean/.venv/bin/python3
 cachedir: .pytest_cache
 rootdir: /home/bernardo/tsb_project_clean/ros2_ws/src/tsb_cv_brain
 configfile: pytest.ini
@@ -18,5 +16,4 @@ test/test_model.py::test_model_output_shape PASSED                       [ 75%]
 test/test_model.py::test_checkpoint_is_compatible PASSED                 [ 87%]
 test/test_pep257.py::test_pep257 PASSED                                  [100%]
 
-============================== 8 passed in 2.05s ===============================
-ELAPSED_SECONDS=2.79
+============================== 8 passed in 2.59s ===============================

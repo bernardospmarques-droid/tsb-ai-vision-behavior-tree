@@ -1,1 +1,0 @@
-4ca31c08286713455884bea36ef10d848d1ae7654c54f2676764a5a74df867ac  ros2_ws/src/tsb_cv_brain/models/arrow_cnn_best.pth

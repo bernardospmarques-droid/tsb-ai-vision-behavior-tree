@@ -10,8 +10,6 @@
 #include "behaviortree_cpp/loggers/groot2_publisher.h"
 #include "behaviortree_cpp/xml_parsing.h"
 #include "rclcpp/rclcpp.hpp"
-#include "tsb_bt_core/actions/move_forward.hpp"
-#include "tsb_bt_core/actions/rotate.hpp"
 #include "tsb_bt_core/actions/get_vision_command.hpp"
 #include "tsb_bt_core/actions/move_turtle.hpp"
 #include "tsb_bt_core/actions/move_circular.hpp"
@@ -50,11 +48,7 @@ const bool run_once = node->declare_parameter<bool>("run_once", false);  // Spin
 factory.registerNodeType<tsb_bt_core::MoveTurtle>(
   "MoveTurtle", node);
 
-factory.registerNodeType<tsb_bt_core::MoveForward>(
-  "TurtleMoveForward", node);
 
-factory.registerNodeType<tsb_bt_core::Rotate>(
-  "TurtleRotate", node);
 factory.registerNodeType<tsb_bt_core::MoveCircular>(
   "TurtleMoveCircular", node);
 factory.registerNodeType<tsb_bt_core::CalculatePolygonTurn>(
