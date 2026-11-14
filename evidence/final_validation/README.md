@@ -33,3 +33,32 @@ Os dois ficheiros são binariamente iguais.
 Os resultados oficiais encontram-se exclusivamente em `training/outputs/`.
 Resultados antigos, checkpoints substituídos e evidências duplicadas foram
 removidos.
+
+## Reprodução da avaliação do modelo
+
+A avaliação do conjunto de teste foi reproduzida explicitamente com o
+checkpoint cujo SHA-256 é:
+
+`3cf85fdda9b1f8e2d1f4abbc571196417aeed8d8aa3359d55b7f7658da2c3a2e`
+
+Configuração utilizada:
+
+- dataset: `Direction`, com 3.593 imagens;
+- divisão determinística com seed `42`;
+- conjunto de teste: 540 imagens;
+- batch size: `64`;
+- workers: `2`;
+- checkpoint epoch: `26`.
+
+Resultados reproduzidos:
+
+- test loss: `1.0815736210066394e-05`;
+- test accuracy: `1.0`;
+- previsões corretas: `540`;
+- previsões incorretas: `0`.
+
+A reprodução gerou um relatório de classificação, uma matriz de confusão e
+um JSON binariamente iguais aos ficheiros existentes em `training/outputs/`.
+O CSV continha as mesmas 540 imagens, classes, previsões, probabilidades e
+confianças; a diferença de hash era apenas uma diferença de ordenação das
+linhas.

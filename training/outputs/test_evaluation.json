@@ -82,5 +82,12 @@
       0,
       139
     ]
-  ]
+  ],
+  "checkpoint_sha256": "3cf85fdda9b1f8e2d1f4abbc571196417aeed8d8aa3359d55b7f7658da2c3a2e",
+  "dataset": "arrow_dataset/extracted/Direction",
+  "evaluation_seed": 42,
+  "evaluation_batch_size": 64,
+  "evaluation_workers": 2,
+  "dataset_total_images": 3593,
+  "test_split_images": 540
 }
