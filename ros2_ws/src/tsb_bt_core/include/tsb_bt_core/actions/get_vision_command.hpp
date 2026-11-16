@@ -82,7 +82,7 @@ private:
       std::lock_guard<std::mutex> lock(mutex_);
 
       if (!latest_command_.has_value()) {
-        return BT::NodeStatus::RUNNING;
+        return BT::NodeStatus::FAILURE;
       }
 
       command = latest_command_;
@@ -96,7 +96,7 @@ private:
         name().c_str(),
         command.value().c_str());
 
-      return BT::NodeStatus::RUNNING;
+      return BT::NodeStatus::FAILURE;
     }
 
     setOutput("command", command.value());

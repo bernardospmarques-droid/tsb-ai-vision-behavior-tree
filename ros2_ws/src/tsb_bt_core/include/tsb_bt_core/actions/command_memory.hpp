@@ -60,7 +60,12 @@ public:
     setOutput("repeat_command", repeated);
     setOutput("objective_already_met", repeated);
     setOutput("movement_running", false);
-    setOutput("system_valid", true);
+    
+    const bool system_valid =
+      !(current == "FAIL" || current == "SYSTEM_ERROR");
+
+    setOutput("system_valid", system_valid);
+
 
     setOutput("last_command", previous);
 

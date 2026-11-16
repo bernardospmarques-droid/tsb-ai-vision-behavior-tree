@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4" main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <Sequence name="ReceiveAndExecute">
+      <GetVisionCommand name="GetCommand" command="{command}" />
+      <Switch6 name="SelectBehavior_REGULAR_POLYGON_fallback" variable="{command}" case_1="UP" case_2="DOWN" case_3="LEFT" case_4="RIGHT" case_5="SQUARE" case_6="CIRCLE">
+        <MoveTurtle name="MoveForward" command="UP" linear_speed="2.0" angular_speed="1.5" duration="0.8" />
+        <MoveTurtle name="MoveBackward" command="DOWN" linear_speed="2.0" angular_speed="1.5" duration="0.8" />
+        <MoveTurtle name="RotateLeft90" command="LEFT" linear_speed="2.0" angular_speed="1.5" duration="1.0472" />
+        <MoveTurtle name="RotateRight90" command="RIGHT" linear_speed="2.0" angular_speed="1.5" duration="1.0472" />
+        <SubTree ID="DrawSquare" name="ExecuteSquare" move_direction="UP" turn_direction="LEFT" linear_speed="2.0" side_duration="1.5" />
+        <SubTree ID="DrawCircle" name="ExecuteCircle" circle_linear_speed="2.0" circle_angular_speed="1.5" circle_duration="4.1888" />
+        <SubTree ID="DrawRegularPolygon" name="ExecuteRegularPolygon" number_of_sides="6" move_direction="UP" turn_direction="LEFT" linear_speed="1.5" side_duration="1.0" angular_speed="1.5" />
+      </Switch6>
+    </Sequence>
+  </BehaviorTree>
+  <BehaviorTree ID="DrawSquare">
+    <SubTree ID="DrawRegularPolygon" name="SquareFixedGeometry" number_of_sides="4" move_direction="{move_direction}" turn_direction="{turn_direction}" linear_speed="{linear_speed}" side_duration="{side_duration}" angular_speed="1.5" />
+  </BehaviorTree>
+  <BehaviorTree ID="DrawRegularPolygon">
+    <Sequence name="ConfigureAndDrawPolygon">
+      <CalculatePolygonTurn name="CalculateTurnDuration" number_of_sides="{number_of_sides}" angular_speed="{angular_speed}" turn_duration="{turn_duration}" />
+      <Repeat name="RepeatPolygonSides" num_cycles="{number_of_sides}">
+        <Sequence name="DrawOnePolygonSide">
+          <MoveTurtle name="PolygonMove" command="{move_direction}" linear_speed="{linear_speed}" angular_speed="{angular_speed}" duration="{side_duration}" />
+          <MoveTurtle name="PolygonTurn" command="{turn_direction}" linear_speed="{linear_speed}" angular_speed="{angular_speed}" duration="{turn_duration}" />
+        </Sequence>
+      </Repeat>
+    </Sequence>
+  </BehaviorTree>
+  <BehaviorTree ID="DrawCircle">
+    <TurtleMoveCircular name="DrawFullCircle" linear_speed="{circle_linear_speed}" angular_speed="{circle_angular_speed}" duration="{circle_duration}" />
+  </BehaviorTree>
+  <TreeNodesModel>
+    <Action ID="GetVisionCommand">
+      <output_port name="command" type="std::string">UP, DOWN, LEFT, RIGHT, SQUARE, CIRCLE or REGULAR_POLYGON</output_port>
+    </Action>
+    <Action ID="MoveTurtle">
+      <input_port name="command" type="std::string">UP, DOWN, LEFT or RIGHT</input_port>
+      <input_port name="linear_speed" type="double" default="2.0" />
+      <input_port name="angular_speed" type="double" default="1.5" />
+      <input_port name="duration" type="double" default="0.8" />
+    </Action>
+    <Action ID="TurtleMoveCircular">
+      <input_port name="linear_speed" type="double" default="2.0" />
+      <input_port name="angular_speed" type="double" default="1.5" />
+      <input_port name="duration" type="double" default="4.1888" />
+    </Action>
+    <Action ID="CalculatePolygonTurn">
+      <input_port name="number_of_sides" type="int" default="6" />
+      <input_port name="angular_speed" type="double" default="1.5" />
+      <output_port name="turn_duration" type="double" />
+    </Action>
+    <SubTree ID="DrawRegularPolygon">
+      <input_port name="number_of_sides" type="int" default="6" />
+      <input_port name="move_direction" type="std::string" default="UP" />
+      <input_port name="turn_direction" type="std::string" default="LEFT" />
+      <input_port name="linear_speed" type="double" default="1.5" />
+      <input_port name="side_duration" type="double" default="1.0" />
+      <input_port name="angular_speed" type="double" default="1.5" />
+    </SubTree>
+    <SubTree ID="DrawCircle">
+      <input_port name="circle_linear_speed" type="double" default="2.0" />
+      <input_port name="circle_angular_speed" type="double" default="1.5" />
+      <input_port name="circle_duration" type="double" default="4.1888" />
+    </SubTree>
+    <SubTree ID="DrawSquare">
+      <input_port name="move_direction" type="std::string" default="UP" />
+      <input_port name="turn_direction" type="std::string" default="LEFT" />
+      <input_port name="linear_speed" type="double" default="2.0" />
+      <input_port name="side_duration" type="double" default="1.5" />
+    </SubTree>
+  </TreeNodesModel>
+</root>

@@ -8,8 +8,8 @@
         _onSuccess="command_received = true"
         _onFailure="execution_result = 'COMMAND_FAILURE'"
         _post="command_stage = 'COMMAND_RECEIVED'" />
-      <CommandMemory command="{command}" repeat_command="{repeat_command}" last_command="{last_command}" />
-      <Switch6 name="SelectBehavior_REGULAR_POLYGON_fallback" _while="command_received && system_valid" _failureIf="movement_running" _onSuccess="execution_result = 'SUCCESS'"
+      <CommandMemory command="{command}" repeat_command="{repeat_command}" last_command="{last_command}" system_valid="{system_valid}" />
+      <Switch6 name="SelectBehavior_REGULAR_POLYGON_fallback" _while="command_received && system_valid" _failureIf="!system_valid" _onSuccess="execution_result = 'SUCCESS'"
         _onFailure="execution_result = 'FAILURE'"
         _post="command_stage = 'MOVEMENT_FINISHED'" variable="{command}" case_1="UP" case_2="DOWN" case_3="LEFT" case_4="RIGHT" case_5="SQUARE" case_6="CIRCLE">
         <MoveTurtle name="MoveForward" command="UP" linear_speed="2.0" angular_speed="1.5" duration="0.8" />
@@ -30,14 +30,14 @@
       <CalculatePolygonTurn name="CalculateTurnDuration" number_of_sides="{number_of_sides}" angular_speed="{angular_speed}" turn_duration="{turn_duration}" />
       <Repeat name="RepeatPolygonSides" num_cycles="{number_of_sides}">
         <Sequence name="DrawOnePolygonSide">
-          <MoveTurtle name="PolygonMove" command="{move_direction}" linear_speed="{linear_speed}" angular_speed="{angular_speed}" duration="{side_duration}" />
-          <MoveTurtle name="PolygonTurn" command="{turn_direction}" linear_speed="{linear_speed}" angular_speed="{angular_speed}" duration="{turn_duration}" />
+          <MoveTurtle name="PolygonMove" _onHalted="command_stage = 'HALTED'" command="{move_direction}" linear_speed="{linear_speed}" angular_speed="{angular_speed}" duration="{side_duration}" />
+          <MoveTurtle name="PolygonTurn" _onHalted="command_stage = 'HALTED'" command="{turn_direction}" linear_speed="{linear_speed}" angular_speed="{angular_speed}" duration="{turn_duration}" />
         </Sequence>
       </Repeat>
     </Sequence>
   </BehaviorTree>
   <BehaviorTree ID="DrawCircle">
-    <TurtleMoveCircular name="DrawFullCircle" linear_speed="{circle_linear_speed}" angular_speed="{circle_angular_speed}" duration="{circle_duration}" />
+    <TurtleMoveCircular name="DrawFullCircle" _onHalted="command_stage = 'HALTED'" linear_speed="{circle_linear_speed}" angular_speed="{circle_angular_speed}" duration="{circle_duration}" />
   </BehaviorTree>
 
   <!--
