@@ -10,9 +10,9 @@
         <MoveTurtle name="MoveBackward" command="DOWN" linear_speed="2.0" angular_speed="1.5" duration="0.8" />
         <MoveTurtle name="RotateLeft90" command="LEFT" linear_speed="2.0" angular_speed="1.5" duration="1.0472" />
         <MoveTurtle name="RotateRight90" command="RIGHT" linear_speed="2.0" angular_speed="1.5" duration="1.0472" />
-        <SubTree ID="DrawSquare" name="ExecuteSquare" move_direction="UP" turn_direction="LEFT" linear_speed="2.0" side_duration="1.5" />
-        <SubTree ID="DrawCircle" name="ExecuteCircle" circle_linear_speed="2.0" circle_angular_speed="1.5" circle_duration="4.1888" />
-        <SubTree ID="DrawRegularPolygon" name="ExecuteRegularPolygon" number_of_sides="6" move_direction="UP" turn_direction="LEFT" linear_speed="1.5" side_duration="1.0" angular_speed="1.5" />
+        <SubTree ID="DrawSquare" name="ExecuteSquare" _skipIf="repeat_command" move_direction="UP" turn_direction="LEFT" linear_speed="2.0" side_duration="1.5" />
+        <SubTree ID="DrawCircle" name="ExecuteCircle" _skipIf="repeat_command" circle_linear_speed="2.0" circle_angular_speed="1.5" circle_duration="4.1888" />
+        <SubTree ID="DrawRegularPolygon" name="ExecuteRegularPolygon" _skipIf="repeat_command" number_of_sides="6" move_direction="UP" turn_direction="LEFT" linear_speed="1.5" side_duration="1.0" angular_speed="1.5" />
       </Switch6>
     </Sequence>
   </BehaviorTree>
