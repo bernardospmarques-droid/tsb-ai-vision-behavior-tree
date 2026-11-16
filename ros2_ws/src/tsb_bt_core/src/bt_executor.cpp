@@ -92,6 +92,9 @@ factory.registerNodeType<tsb_bt_core::CommandMemory>(
       node->get_logger(),
       "Tree finished with status: %s",
       BT::toStr(status).c_str());
+
+    tree.haltTree();
+    break;
   }
 
   if (run_once && status != BT::NodeStatus::RUNNING) {
