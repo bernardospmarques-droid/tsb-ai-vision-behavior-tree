@@ -1,0 +1,251 @@
+Linux 6.6.87.2-microsoft-standard-WSL2 (ROG-X16) 	11/16/2026 	_x86_64_	(20 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:21 PM  1000    122904    0.00    0.00    0.00    0.00    0.00    12      3.00      0.00    6444    2560   0.03  pidstat
+08:07:21 PM  1000    122905    0.00    0.00    0.00    0.00    0.00    14     69.00      2.00    6024    1760   0.02  tee
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:22 PM  1000      7301    1.00    0.00    0.00    0.00    1.00     2      0.00      0.00  886192   80612   1.02  python3
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:23 PM  1000       406    0.00    1.00    0.00    0.00    1.00     8      0.00      0.00  407872   26240   0.33  PanGPA
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:25 PM  1000      7301    1.00    0.00    0.00    0.00    1.00     2      0.00      0.00  886192   80612   1.02  python3
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:26 PM  1000      7253    1.00    0.00    0.00    0.00    1.00     5      0.00      0.00  884544   76476   0.96  python
+08:07:26 PM  1000    122904    0.00    1.00    0.00    0.00    1.00    12      0.00      0.00    6444    2560   0.03  pidstat
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:27 PM  1000      7178    1.00    0.00    0.00    0.00    1.00     6      0.00      0.00 2055060  293940   3.70  python
+08:07:27 PM  1000      7301    1.00    0.00    0.00    0.00    1.00     2      0.00      0.00  886192   80612   1.02  python3
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:29 PM  1000      7300    0.00    1.00    0.00    0.00    1.00    11      0.00      0.00 1187536   86208   1.09  python3
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:31 PM     0        88    0.00    1.00    0.00    0.00    1.00     9     98.00      0.00   25876    6240   0.08  systemd-udevd
+08:07:31 PM  1000      7301    1.00    0.00    0.00    0.00    1.00     2      0.00      0.00  886192   80612   1.02  python3
+08:07:31 PM     0    122939    0.00    0.00    0.00    0.00    0.00    12    107.00      0.00   25880    3888   0.05  (udev-worker)
+08:07:31 PM     0    122940    0.00    0.00    0.00    0.00    0.00    14    101.00      0.00   25880    3888   0.05  (udev-worker)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:32 PM  1000      7178    0.00    1.00    0.00    0.00    1.00     6      0.00      0.00 2055060  293940   3.70  python
+08:07:32 PM  1000    122904    0.00    0.00    0.00    0.00    0.00    12      5.00      0.00    6444    2560   0.03  pidstat
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:34 PM  1000    122904    1.00    1.00    0.00    0.00    2.00    12      0.00      0.00    6444    2560   0.03  pidstat
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:35 PM     0        39    0.00    0.00    0.00    0.00    0.00     5     15.00      0.00   50440   15840   0.20  systemd-journal
+08:07:35 PM     0        88    1.00    0.00    0.00    0.00    1.00     9    111.00      0.00   25876    6240   0.08  systemd-udevd
+08:07:35 PM  1000      7301    1.00    0.00    0.00    0.00    1.00     2      0.00      0.00  886192   80612   1.02  python3
+08:07:35 PM     0    122950    0.00    0.00    0.00    0.00    0.00    10    111.00      0.00   25880    3888   0.05  (udev-worker)
+08:07:35 PM     0    122951    0.00    0.00    0.00    0.00    0.00    16    106.00      0.00   25880    3888   0.05  (udev-worker)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:36 PM  1000       406    0.00    0.99    0.00    0.00    0.99     8      0.00      0.00  407872   26240   0.33  PanGPA
+08:07:36 PM  1000    122904    0.00    0.00    0.00    0.00    0.00    12      3.96      0.00    6444    2560   0.03  pidstat
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:37 PM  1000      7253    1.00    0.00    0.00    0.00    1.00     5      0.00      0.00  884544   76476   0.96  python
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:38 PM     0        88    0.00    0.00    0.00    0.00    0.00     9     15.00      0.00   25876    6240   0.08  systemd-udevd
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:40 PM  1000      7301    1.00    0.00    0.00    0.00    1.00     2      0.00      0.00  886192   80612   1.02  python3
+08:07:40 PM  1000    116495    0.00    0.00    0.00    0.00    0.00    12      1.00      0.00    9400    5440   0.07  bash
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:41 PM     0       174    0.00    1.00    0.00    0.00    1.00    11      0.00      0.00 1026312   10720   0.14  lttng-sessiond
+08:07:41 PM  1000      7301    0.00    1.00    0.00    0.00    1.00     2      0.00      0.00  886192   80612   1.02  python3
+08:07:41 PM  1000    116495    1.00    1.00    0.00    0.00    2.00    13   1099.00      0.00    9400    5440   0.07  bash
+08:07:41 PM  1000    122979   20.00    3.00    0.00    0.00   23.00    13   4658.00     37.00  186584   28800   0.36  ros2
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:42 PM  1000       406    0.00    0.00    0.00    0.00    0.00     8      0.00      0.00  407872   26400   0.33  PanGPA
+08:07:42 PM  1000      7178    1.00    0.00    0.00    0.00    1.00     6      4.00      0.00 2055164  293940   3.70  python
+08:07:42 PM  1000      7253    0.00    0.00    0.00    0.00    0.00     5      4.00      0.00  884648   76636   0.97  python
+08:07:42 PM  1000      7300    1.00    0.00    0.00    0.00    1.00    11      4.00      0.00 1187640   86208   1.09  python3
+08:07:42 PM  1000      7301    1.00    0.00    0.00    0.00    1.00     2      4.00      0.00  886192   80772   1.02  python3
+08:07:42 PM  1000    116495    0.00    0.00    0.00    0.00    0.00     4     40.00      0.00    9400    5440   0.07  bash
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:43 PM  1000      7178    0.00    0.00    0.00    0.00    0.00     6      0.00      0.00 2055060  293940   3.70  python
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:44 PM  1000      7253    0.00    0.00    0.00    0.00    0.00     5      0.00      0.00  884544   76448   0.96  python
+08:07:44 PM  1000    122904    1.00    1.00    0.00    0.00    2.00    12      0.00      0.00    6444    2560   0.03  pidstat
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:45 PM     0         2    0.00    1.00    0.00    0.00    1.00     2     17.00      0.00    3120    1920   0.02  init-systemd(Ub
+08:07:45 PM     0        88    0.00    0.00    0.00    0.00    0.00     9    227.00      0.00   25876    6240   0.08  systemd-udevd
+08:07:45 PM  1000      7253    0.00    1.00    0.00    0.00    1.00     5      0.00      0.00  884544   76448   0.96  python
+08:07:45 PM  1000      7300    0.00    0.00    0.00    0.00    0.00    11      2.00      0.00 1187536   86012   1.08  python3
+08:07:45 PM     0    123018    0.00    0.00    0.00    0.00    0.00    15    128.00      3.00   25880    4368   0.06  (udev-worker)
+08:07:45 PM     0    123020    0.00    0.00    0.00    0.00    0.00    16    122.00      1.00   25880    4368   0.06  (udev-worker)
+08:07:45 PM     0    123021    0.00    0.00    0.00    0.00    0.00    10    121.00      0.00   25880    4368   0.06  (udev-worker)
+08:07:45 PM     0    123023    0.00    0.00    0.00    0.00    0.00    18     73.00      0.00   25880    3888   0.05  (udev-worker)
+08:07:45 PM     0    123024    0.00    0.00    0.00    0.00    0.00     6     30.00      0.00    3136     800   0.01  SessionLeader
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:46 PM     0         2    0.00    0.00    0.00    0.00    0.00     2     16.00      0.00    3120    1920   0.02  init-systemd(Ub
+08:07:46 PM     0        88    0.00    1.00    0.00    0.00    1.00     5      0.00      0.00   25876    6240   0.08  systemd-udevd
+08:07:46 PM  1000      7301    1.00    0.00    0.00    0.00    1.00     2      0.00      0.00  886192   80772   1.02  python3
+08:07:46 PM  1000    119683    0.00    0.00    0.00    0.00    0.00    17      1.00      0.00    9268    5600   0.07  bash
+08:07:46 PM  1000    122904    0.00    0.00    0.00    0.00    0.00    12      2.00      0.00    6444    2560   0.03  pidstat
+08:07:46 PM     0    123020    0.00    1.00    0.00    0.00    1.00    16      0.00      0.00   25880    4368   0.06  (udev-worker)
+08:07:46 PM     0    123023    0.00    0.00    0.00    0.00    0.00    18     44.00      0.00   25880    4368   0.06  (udev-worker)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:47 PM  1000      7178    0.00    1.00    0.00    0.00    1.00     6      4.00      0.00 2055164  293940   3.70  python
+08:07:47 PM  1000      7253    1.00    0.00    0.00    0.00    1.00     5      5.00      0.00  885188   76448   0.96  python
+08:07:47 PM  1000      7300    0.00    1.00    0.00    0.00    1.00    11      5.00      0.00 1188180   86172   1.09  python3
+08:07:47 PM  1000      7301    0.00    1.00    0.00    0.00    1.00     2      5.00      0.00  886836   80772   1.02  python3
+08:07:47 PM  1000    119683    0.00    0.00    0.00    0.00    0.00    17     38.00      0.00    9268    5600   0.07  bash
+08:07:47 PM  1000    123033   56.00   13.00    0.00    0.00   69.00     2  11834.00     58.00  748688   73052   0.92  ros2
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:48 PM  1000      7178    1.00    0.00    0.00    0.00    1.00     6      1.00      0.00 2055704  293940   3.70  python
+08:07:48 PM  1000      7253    0.00    1.00    0.00    0.00    1.00     5      0.00      0.00  885188   76448   0.96  python
+08:07:48 PM  1000      7300    0.00    1.00    0.00    0.00    1.00    11      0.00      0.00 1188180   86172   1.09  python3
+08:07:48 PM  1000      7301    1.00    0.00    0.00    0.00    1.00     2      0.00      0.00  886836   80772   1.02  python3
+08:07:48 PM  1000    123033    9.00    2.00    0.00    0.00   11.00     2    134.00      5.00  815084   74172   0.93  ros2
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:49 PM     0        88    0.00    0.00    0.00    0.00    0.00     5      7.00      0.00   25876    6240   0.08  systemd-udevd
+08:07:49 PM  1000      7301    1.00    0.00    0.00    0.00    1.00     2      0.00      0.00  886836   80772   1.02  python3
+08:07:49 PM  1000    122904    1.00    0.00    0.00    0.00    1.00    12      0.00      0.00    6444    2560   0.03  pidstat
+08:07:49 PM  1000    123033    0.00    1.00    0.00    0.00    1.00     2      0.00      0.00  815084   74172   0.93  ros2
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:50 PM  1000       406    0.00    0.00    0.00    0.00    0.00     8      0.00      0.00  407872   26560   0.33  PanGPA
+08:07:50 PM  1000    123033    1.00    0.00    0.00    0.00    1.00     2      0.00      0.00  815084   74172   0.93  ros2
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:51 PM     0       242    0.00    1.00    0.00    0.00    1.00     6      0.00      0.00  777356   28756   0.36  PanGPS
+08:07:51 PM  1000      7301    0.00    1.00    0.00    0.00    1.00     2      0.00      0.00  886836   80772   1.02  python3
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:52 PM  1000       406    0.00    1.00    0.00    0.00    1.00     8      0.00      0.00  407872   26560   0.33  PanGPA
+08:07:52 PM  1000      7178    1.00    0.00    0.00    0.00    1.00     6      0.00      0.00 2055704  293940   3.70  python
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:53 PM     0        88    0.00    0.00    0.00    0.00    0.00     5    141.00      0.00   25876    6240   0.08  systemd-udevd
+08:07:53 PM  1000      7178    0.00    1.00    0.00    0.00    1.00     6      0.00      0.00 2055704  293940   3.70  python
+08:07:53 PM     0    123069    0.00    0.00    0.00    0.00    0.00     6    111.00      0.00   25880    3888   0.05  (udev-worker)
+08:07:53 PM     0    123070    0.00    0.00    0.00    0.00    0.00    13     90.00      0.00   25880    3888   0.05  (udev-worker)
+08:07:53 PM     0    123071    0.00    0.00    0.00    0.00    0.00    14     97.00      0.00   25880    3888   0.05  (udev-worker)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:54 PM     0        88    0.00    1.00    0.00    0.00    1.00     5     60.00      0.00   25876    6240   0.08  systemd-udevd
+08:07:54 PM  1000      7253    0.00    1.00    0.00    0.00    1.00     5      0.00      0.00  885188   76448   0.96  python
+08:07:54 PM  1000      7300    0.00    1.00    0.00    0.00    1.00    11      0.00      0.00 1188180   86172   1.09  python3
+08:07:54 PM     0    123069    0.00    0.00    0.00    0.00    0.00     6      1.00      0.00   25880    3888   0.05  (udev-worker)
+08:07:54 PM     0    123070    0.00    0.00    0.00    0.00    0.00    13     11.00      0.00   25880    3888   0.05  (udev-worker)
+08:07:54 PM     0    123071    0.00    0.00    0.00    0.00    0.00    14      3.00      0.00   25880    3888   0.05  (udev-worker)
+08:07:54 PM     0    123072    0.00    0.00    0.00    0.00    0.00     9    100.00      0.00   25880    3888   0.05  (udev-worker)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:56 PM  1000      7301    1.00    0.00    0.00    0.00    1.00     2      0.00      0.00  886836   80772   1.02  python3
+08:07:56 PM  1000    123033    1.00    0.00    0.00    0.00    1.00     2      0.00      0.00  815084   74172   0.93  ros2
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:57 PM     0        88    0.00    0.00    0.00    0.00    0.00     5      7.92      0.00   25876    6240   0.08  systemd-udevd
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:58 PM  1000      7301    0.00    0.99    0.00    0.00    0.99     2      0.00      0.00  886836   80772   1.02  python3
+08:07:58 PM  1000    122904    0.00    0.99    0.00    0.00    0.99    12      0.00      0.00    6444    2560   0.03  pidstat
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:07:59 PM  1000      7331    1.00    0.00    0.00    0.00    1.00    13      0.00      0.00  178100   20480   0.26  python3
+08:07:59 PM  1000    123033    0.00    1.00    0.00    0.00    1.00     2      0.00      0.00  815084   74172   0.93  ros2
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:08:00 PM  1000    123033    0.99    0.00    0.00    0.00    0.99     2      0.00      0.00  815084   74172   0.93  ros2
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:08:01 PM     0       174    1.00    0.00    0.00    0.00    1.00    11      0.00      0.00 1026312   10720   0.14  lttng-sessiond
+08:08:01 PM  1000      7178    0.00    1.00    0.00    0.00    1.00     6      4.00      0.00 2055808  293940   3.70  python
+08:08:01 PM  1000      7253    0.00    1.00    0.00    0.00    1.00     5      4.00      0.00  885292   76448   0.96  python
+08:08:01 PM  1000      7300    0.00    1.00    0.00    0.00    1.00    11      4.00      0.00 1188284   86172   1.09  python3
+08:08:01 PM  1000      7301    1.00    0.00    0.00    0.00    1.00     2      4.00      0.00  886940   80772   1.02  python3
+08:08:01 PM  1000    116495    0.00    1.00    0.00    0.00    1.00    13   1110.00      0.00    9400    5440   0.07  bash
+08:08:01 PM  1000    123033    0.00    0.00    0.00    0.00    0.00     2     48.00      0.00  880724   74172   0.93  ros2
+08:08:01 PM  1000    123103   25.00    2.00    0.00    0.00   27.00    14   4779.00      0.00  186584   29280   0.37  ros2
+08:08:01 PM  1000    123106    5.00    3.00    0.00    0.00    8.00     9   2994.00      0.00  691128   30592   0.39  bt_executor
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:08:02 PM  1000      7253    0.00    0.00    0.00    0.00    0.00     5      0.00      0.00  885188   76448   0.96  python
+08:08:02 PM  1000    116495    0.00    0.00    0.00    0.00    0.00     4     41.00      0.00    9400    5440   0.07  bash
+08:08:02 PM  1000    122904    1.00    1.00    0.00    0.00    2.00    12      0.00      0.00    6444    2560   0.03  pidstat
+08:08:02 PM  1000    123033    1.00    0.00    0.00    0.00    1.00     2      0.00      0.00  880724   74172   0.93  ros2
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:08:03 PM  1000      7300    0.00    0.00    0.00    0.00    0.00    11      0.00      0.00 1188180   86172   1.09  python3
+08:08:03 PM  1000      7301    0.00    0.00    0.00    0.00    0.00     2      0.00      0.00  886836   80772   1.02  python3
+08:08:03 PM  1000    123033    0.00    0.00    0.00    0.00    0.00     2      0.00      0.00  880620   74172   0.93  ros2
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:08:04 PM  1000      7178    0.00    0.00    0.00    0.00    0.00     6      2.00      0.00 2055704  293756   3.70  python
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:08:06 PM  1000      7253    1.00    0.00    0.00    0.00    1.00     5      0.00      0.00  885188   76448   0.96  python
+08:08:06 PM  1000      7301    1.00    0.00    0.00    0.00    1.00     2      0.00      0.00  886836   80772   1.02  python3
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:08:08 PM  1000      7300    0.00    0.00    0.00    0.00    0.00    11      0.00      0.00 1187640   86172   1.09  python3
+08:08:08 PM  1000    119683    0.00    0.00    0.00    0.00    0.00    17     54.00      0.00    9268    5600   0.07  bash
+08:08:08 PM  1000    123147    0.00    0.00    0.00    0.00    0.00    18     93.00      2.00    6016    1920   0.02  sleep
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:08:09 PM  1000      7178    1.00    0.00    0.00    0.00    1.00     6      4.00      0.00 2056244  293916   3.70  python
+08:08:09 PM  1000      7253    0.00    1.00    0.00    0.00    1.00     5      3.00      0.00  885728   76448   0.96  python
+08:08:09 PM  1000      7300    1.00    1.00    0.00    0.00    2.00    11      5.00      0.00 1188180   86172   1.09  python3
+08:08:09 PM  1000      7301    0.00    2.00    0.00    0.00    2.00     2      5.00      0.00  887376   80568   1.01  python3
+08:08:09 PM  1000    119683    0.00    0.00    0.00    0.00    0.00    17     68.00      0.00    9268    5600   0.07  bash
+08:08:09 PM  1000    123151   49.00    5.00    0.00    0.00   54.00    17  12001.00      0.00  749080   73408   0.92  ros2
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:08:10 PM     0       174    0.00    1.00    0.00    0.00    1.00    11      0.00      0.00 1026312   10720   0.14  lttng-sessiond
+08:08:10 PM     0    116497    0.00    1.00    0.00    0.00    1.00     4      0.00      0.00    3136     960   0.01  Relay(116498)
+08:08:10 PM  1000    119683    0.00    0.00    0.00    0.00    0.00    17     37.00      0.00    9268    5600   0.07  bash
+08:08:10 PM  1000    122904    0.00    1.00    0.00    0.00    1.00    12      0.00      0.00    6444    2560   0.03  pidstat
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:08:11 PM     0         2    0.00    0.00    0.00    0.00    0.00     2     58.00      0.00    3120    1920   0.02  init-systemd(Ub
+08:08:11 PM     0        88    1.00    1.00    0.00    0.00    2.00     5    289.00      0.00   25876    6240   0.08  systemd-udevd
+08:08:11 PM  1000       406    0.00    1.00    0.00    0.00    1.00     8      0.00      0.00  407872   26560   0.33  PanGPA
+08:08:11 PM  1000      7253    0.00    0.00    0.00    0.00    0.00     5      0.00      0.00  885624   76240   0.96  python
+08:08:11 PM     0    123173    0.00    0.00    0.00    0.00    0.00     9    131.00      1.00   25880    4368   0.06  (udev-worker)
+08:08:11 PM     0    123175    2.00    2.00    0.00    0.00    4.00    18    128.00      0.00   25880    4368   0.06  (udev-worker)
+08:08:11 PM     0    123176    0.00    2.00    0.00    0.00    2.00    15    128.00      1.00   25880    4368   0.06  (udev-worker)
+08:08:11 PM     0    123184    0.00    0.00    0.00    0.00    0.00    10    124.00      0.00   25880    4368   0.06  (udev-worker)
+08:08:11 PM     0    123185    0.00    0.00    0.00    0.00    0.00    12     77.00      0.00   25880    3888   0.05  (udev-worker)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:08:12 PM  1000      7300    0.00    0.00    0.00    0.00    0.00    11      0.00      0.00 1188076   86008   1.08  python3
+08:08:12 PM  1000      7301    1.00    0.00    0.00    0.00    1.00     2      0.00      0.00  887272   80568   1.01  python3
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+08:08:13 PM  1000      7178    0.00    0.00    0.00    0.00    0.00     6      2.00      0.00 2055600  293916   3.70  python
+08:08:13 PM  1000      7253    0.00    0.00    0.00    0.00    0.00     5      0.00      0.00  885084   76240   0.96  python
+08:08:13 PM  1000      7301    0.00    0.00    0.00    0.00    0.00     2      0.00      0.00  886732   80568   1.01  python3
