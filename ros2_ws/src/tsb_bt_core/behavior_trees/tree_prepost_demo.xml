@@ -4,6 +4,7 @@
     <Sequence name="ReceiveAndExecute">
       <Script name="InitializeExecutionState" code="command_received := false; execution_result := 'WAITING'" />
       <GetVisionCommand name="GetCommand" command="{command}" _onSuccess="command_received = true" _onFailure="execution_result = 'COMMAND_FAILURE'" />
+      <CommandMemory command="{command}" repeat_command="{repeat_command}" last_command="{last_command}" />
       <Switch6 name="SelectBehavior_REGULAR_POLYGON_fallback" _while="command_received" _onSuccess="execution_result = 'SUCCESS'" _onFailure="execution_result = 'FAILURE'" variable="{command}" case_1="UP" case_2="DOWN" case_3="LEFT" case_4="RIGHT" case_5="SQUARE" case_6="CIRCLE">
         <MoveTurtle name="MoveForward" command="UP" linear_speed="2.0" angular_speed="1.5" duration="0.8" />
         <MoveTurtle name="MoveBackward" command="DOWN" linear_speed="2.0" angular_speed="1.5" duration="0.8" />
@@ -107,6 +108,12 @@
       <input_port name="angular_speed" type="double" default="1.5" />
       <input_port name="duration" type="double" default="4.1888" />
     </Action>
+    <Action ID="CommandMemory">
+      <input_port name="command" type="std::string"/>
+      <output_port name="repeat_command" type="bool"/>
+      <output_port name="last_command" type="std::string"/>
+    </Action>
+
     <Action ID="CalculatePolygonTurn">
       <input_port name="number_of_sides" type="int" default="6" />
       <input_port name="angular_speed" type="double" default="1.5" />
