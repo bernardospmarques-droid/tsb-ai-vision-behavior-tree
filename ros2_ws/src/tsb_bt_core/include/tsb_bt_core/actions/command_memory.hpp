@@ -21,7 +21,12 @@ public:
   {
     return {
       BT::InputPort<std::string>("command"),
+
       BT::OutputPort<bool>("repeat_command"),
+      BT::OutputPort<bool>("objective_already_met"),
+      BT::OutputPort<bool>("movement_running"),
+      BT::OutputPort<bool>("system_valid"),
+
       BT::OutputPort<std::string>("last_command")
     };
   }
@@ -53,6 +58,10 @@ public:
       );
 
     setOutput("repeat_command", repeated);
+    setOutput("objective_already_met", repeated);
+    setOutput("movement_running", false);
+    setOutput("system_valid", true);
+
     setOutput("last_command", previous);
 
     bb->set("last_command_memory", current);

@@ -164,6 +164,8 @@ public:
 
     start_time_ = std::chrono::steady_clock::now();
 
+    config().blackboard->set("movement_running", true);
+
     cmd_vel_pub_->publish(active_twist_);
 
     RCLCPP_INFO(
@@ -193,6 +195,8 @@ public:
         "[%s] Movement completed",
         name().c_str());
 
+      config().blackboard->set("movement_running", false);
+
       return BT::NodeStatus::SUCCESS;
     }
 
@@ -204,6 +208,8 @@ public:
   void onHalted() override
   {
     publishStop();
+
+    config().blackboard->set("movement_running", false);
 
     RCLCPP_INFO(
       node_->get_logger(),
