@@ -1,18 +1,23 @@
-# Valgrind Results
+# Valgrind
 
-Command executed:
+## Objetivo
 
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./ros2_ws/build/tsb_bt_core/bt_executor
+Esta secção documenta a utilização do Valgrind para validar a gestão de memória dos componentes desenvolvidos em C/C++ no projeto.
 
-Summary:
+O objetivo é verificar a existência de:
 
-- definitely lost: 0 bytes
-- indirectly lost: 0 bytes
-- possibly lost: 279474 bytes
-- still reachable: 5092614 bytes
+- memory leaks;
+- acessos inválidos à memória;
+- utilização de memória não inicializada;
+- libertações incorretas de memória;
+- outros problemas relacionados com gestão dinâmica de memória.
 
-The remaining allocations are associated with ROS 2 Jazzy runtime libraries (FastDDS, rmw_fastrtps, rclcpp, lttng-ust) and do not indicate application-level memory leaks.
+---
 
-Conclusion:
+## Pré-requisitos
 
-No definite memory leaks were detected in the project code.
+Instalar o Valgrind:
+
+```bash
+sudo apt update
+sudo apt install valgrind
