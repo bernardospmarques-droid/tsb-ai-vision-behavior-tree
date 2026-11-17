@@ -2,7 +2,6 @@
 
 import os
 
-from pathlib import Path
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, ExecuteProcess
@@ -72,7 +71,8 @@ def generate_launch_description():
 
         ExecuteProcess(
             cmd=['python3', '-m', 'http.server', '8000'],
-            cwd=str(Path(__file__).resolve().parents[5] / 'web'),
+            cwd=os.path.join(
+                get_package_share_directory('tsb_bt_core'), 'web'),
             output='screen'
         ),
 

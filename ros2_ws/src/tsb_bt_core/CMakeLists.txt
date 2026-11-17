@@ -80,4 +80,9 @@ endif()
 
 ament_export_include_directories(include)
 ament_export_dependencies(${dependencies})
+install(
+  DIRECTORY web
+  DESTINATION share/${PROJECT_NAME}
+)
+
 ament_package()
