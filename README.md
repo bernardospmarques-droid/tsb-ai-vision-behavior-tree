@@ -1,272 +1,214 @@
 # TSB AI Vision and Behavior Tree
 
-Sistema ROS 2 que classifica setas com uma CNN em PyTorch e executa movimentos e formas no Turtlesim através de BehaviorTree.CPP.
+Sistema desenvolvido em ROS 2 Jazzy que integra uma CNN em PyTorch, Behavior Trees (BehaviorTree.CPP), Turtlesim e uma interface web para demonstrar uma pipeline completa de perceção, decisão e atuação.
+
+## Objetivo
+
+O sistema classifica setas através de uma CNN e converte essas previsões em comandos executados por uma Behavior Tree.
+
+Além dos comandos provenientes da visão, a interface web permite executar diretamente formas geométricas pré-definidas.
 
 ## Funcionalidades
 
-- Classificação: `UP`, `DOWN`, `LEFT`, `RIGHT`.
-- Movimentos lineares e rotações de aproximadamente 90 graus.
-- Quadrado implementado como polígono regular de quatro lados.
-- Círculo com velocidades linear e angular simultâneas.
-- Polígono regular configurável entre 3 e 12 lados.
-- Interface web via rosbridge.
-- Edição da árvore no Groot2 e monitorização quando suportada pela licença.
+- Classificação de setas: `UP`, `DOWN`, `LEFT` e `RIGHT`
+- Execução de movimentos através de Behavior Trees
+- Desenho de:
+  - `SQUARE`
+  - `CIRCLE`
+  - `REGULAR_POLYGON`
+- Interface web baseada em rosbridge
+- Edição e visualização da árvore em Groot2
+- Integração completa com ROS 2
 
 ## Arquitetura
 
 ```text
-Canvas ou imagem
--> /vision/canvas_png ou /vision/image
--> canvas_bridge, quando aplicável
--> vision_node e TurtleVisionCNN
--> /vision/command
--> GetVisionCommand
--> Blackboard {command}
--> Switch6
--> MoveTurtle, DrawSquare, DrawCircle ou DrawRegularPolygon
--> /turtle1/cmd_vel
--> Turtlesim
+Imagem
+    ↓
+CNN (PyTorch)
+    ↓
+/vision/command
+    ↓
+Behavior Tree
+    ↓
+Ações de movimento
+    ↓
+/turtle1/cmd_vel
+    ↓
+Turtlesim
 ```
 
-Os botões web publicam `SQUARE`, `CIRCLE` e `REGULAR_POLYGON` diretamente em `/vision/command`. Estes comandos não passam pela CNN.
+Os comandos das formas geométricas são publicados diretamente pela interface web para `/vision/command`.
 
-## Parâmetros principais
-
-### Setas
-
-| Comando | linear.x | angular.z | Duração |
-|---|---:|---:|---:|
-| `UP` | `+2.0` | `0.0` | `0.8 s` |
-| `DOWN` | `-2.0` | `0.0` | `0.8 s` |
-| `LEFT` | `0.0` | `+1.5` | `1.0472 s` |
-| `RIGHT` | `0.0` | `-1.5` | `1.0472 s` |
-
-### Quadrado
-
-O nó `ExecuteSquare` expõe apenas:
-
-- `move_direction`;
-- `turn_direction`;
-- `linear_speed`;
-- `side_duration`.
-
-A geometria fica protegida dentro de `DrawSquare`:
+## Estrutura do Sistema
 
 ```text
-number_of_sides = 4
-angular_speed = 1.5
-```
-
-### Polígono regular
-
-Parâmetros editáveis:
-
-```text
-number_of_sides: 3 a 12
-move_direction: UP ou DOWN
-turn_direction: LEFT ou RIGHT
-linear_speed
-side_duration
-angular_speed
-```
-
-A duração de cada rotação é calculada por:
-
-```text
-turn_duration = 2*pi / (number_of_sides * abs(angular_speed))
-```
-
-### Círculo
-
-```text
-linear_speed = 2.0
-angular_speed = 1.5
-duration = 4.1888 s
-radius ~= 1.333
+CNN (PyTorch)
+    ↓
+vision_node
+    ↓
+BehaviorTree.CPP
+    ↓
+MoveTurtle
+DrawSquare
+DrawCircle
+DrawRegularPolygon
+    ↓
+Turtlesim
 ```
 
 ## Requisitos
 
-- Ubuntu 24.04 LTS;
-- ROS 2 Jazzy;
-- Python 3.12;
-- BehaviorTree.CPP v4;
-- PyTorch;
-- Turtlesim;
-- rosbridge_server;
-- Groot2, opcional.
+- Ubuntu 24.04 LTS
+- ROS 2 Jazzy
+- Python 3.12
+- PyTorch
+- BehaviorTree.CPP v4
+- Turtlesim
+- rosbridge_server
+- Groot2 (opcional)
 
-## Preparação e compilação
+## Compilação
 
 ```bash
 cd ~/tsb_project_clean/ros2_ws
+
 source /opt/ros/jazzy/setup.bash
 source ~/tsb_project_clean/.venv/bin/activate
-colcon build --symlink-install --event-handlers console_direct+
+
+colcon build --symlink-install
+
 source install/setup.bash
 ```
 
 ## Execução
 
-### Sistema principal
+### Sistema Principal
 
 ```bash
 ros2 launch tsb_bt_core challenge.launch.py
 ```
 
-O launch inicia `turtlesim_node`, `vision_node` e `bt_executor`.
+O launch inicia:
 
-### Interface web
+- turtlesim_node
+- vision_node
+- bt_executor
+
+### Interface Web
+
+Iniciar o rosbridge:
 
 ```bash
 ros2 launch rosbridge_server rosbridge_websocket_launch.xml
 ```
 
+Iniciar o canvas bridge:
+
 ```bash
 ros2 run tsb_cv_brain canvas_bridge
 ```
 
+Iniciar o servidor web:
+
 ```bash
-cd ~/tsb_project_clean/web
+cd web
 python3 -m http.server 8000
 ```
 
-Abrir `http://localhost:8000`.
+Abrir:
+
+```text
+http://localhost:8000
+```
 
 ## Groot2
 
-- Editor: abrir `ros2_ws/src/tsb_bt_core/behavior_trees/tree.xml`.
-- Monitor: ligar a `localhost:1667`.
-- O Monitor é apenas de leitura.
-- Depois de guardar alterações ao XML, reiniciar o `bt_executor`.
-- Com `--symlink-install`, não é necessário recompilar alterações exclusivamente no XML.
-- A versão gratuita do Groot2 pode limitar a monitorização de árvores com mais de 20 nós.
+Abrir:
 
-O nome `SelectBehavior_REGULAR_POLYGON_fallback` identifica que `REGULAR_POLYGON` utiliza a saída final do `Switch6`. O port `variable` permanece ligado a `{command}`.
+```text
+ros2_ws/src/tsb_bt_core/behavior_trees/tree.xml
+```
 
-## Testes e resultados
+Monitorização:
 
-CNN no conjunto de teste:
+```text
+localhost:1667
+```
+
+Após alterações ao XML:
+
+1. Guardar a árvore.
+2. Reiniciar o `bt_executor`.
+
+Com `--symlink-install`, não é necessário recompilar alterações exclusivamente no XML.
+
+## Comandos Suportados
+
+### CNN
+
+A CNN reconhece:
+
+```text
+UP
+DOWN
+LEFT
+RIGHT
+```
+
+### Interface Web
+
+A interface permite executar diretamente:
+
+```text
+SQUARE
+CIRCLE
+REGULAR_POLYGON
+```
+
+## Resultados
+
+### CNN
+
+Conjunto de teste:
 
 ```text
 540 imagens
 accuracy = 1.0
-erros = 0
+0 classificações incorretas
 ```
 
-A accuracy perfeita deve ser interpretada apenas dentro da distribuição do dataset. A validação com setas desenhadas manualmente continua a ser a evidência externa mais relevante.
+### Integração
+
+Sistema validado com:
+
+- CNN
+- ROS 2
+- Behavior Tree
+- Interface Web
+- Groot2
+- Turtlesim
 
 ## Evidências
 
-- Logs: `evidence/square/`, `evidence/circle/`, `evidence/regular_polygon/`.
-- Avaliação da CNN: `training/outputs/` e a secção "Avaliação do modelo e análise de overfitting" deste README.
-- Vídeo final integrado: `evidence/final_validation/final_integrated_demo.mp4`.
-
-## Estado validado
-
-- Branch: `main`.
-- Vídeo final comprimido e incluído no Git.
-- Blackboard, web, CNN, formas e Turtlesim integrados.
-
-## Limiar de confiança
-
-O nó de visão aplica um limiar mínimo configurável através do parâmetro
-ROS 2 `minimum_confidence`, cujo valor predefinido é `0.75`.
-
-- Confiança inferior a `0.75`: publica `UNKNOWN`.
-- Confiança igual ou superior a `0.75`: publica `UP`, `DOWN`, `LEFT` ou
-  `RIGHT`.
-
-O limiar é aplicado em `vision_node.py` depois da inferência e não faz
-parte do checkpoint da CNN.
-
-<!-- CURRENT_VALIDATION_START -->
-## Estado atual validado
-
-- Checkpoint oficial: `training/weights/arrow_cnn_best.pth`
-- Checkpoint ROS 2: `ros2_ws/src/tsb_cv_brain/models/arrow_cnn_best.pth`
-- SHA-256 dos dois checkpoints: `3cf85fdda9b1f8e2d1f4abbc571196417aeed8d8aa3359d55b7f7658da2c3a2e`
-- Resultados atuais do modelo: `training/outputs/`
-- Evidencias atuais: `evidence/final_validation/`
-- Testes Python: `8 passed in 3.13s`.
-- Testes ROS 2 e C++: `Summary: 18 tests, 0 errors, 0 failures, 6 skipped`.
-- Checkpoints de treino e producao binariamente iguais.
-- Fonte oficial do resultado ROS 2/C++:
-  `evidence/final_validation/colcon_test.txt`.
-
-Resultados antigos, checkpoints substituidos e evidencias documentais
-duplicadas foram removidos.
-<!-- CURRENT_VALIDATION_END -->
-
-<!-- CONSOLIDATED_EVIDENCE_START -->
-## Evidencias e interpretacao consolidadas
-
-### Avaliacao do modelo e analise de overfitting
-
-## Resultados
-
-O modelo foi treinado durante 30 épocas para classificar Down, Left, Right e Up.
-
-No conjunto de teste com 540 imagens foram obtidos:
-
-- accuracy global de 1.0;
-- zero classificações incorretas;
-- precision de 1.0 em todas as classes;
-- recall de 1.0 em todas as classes;
-- F1-score de 1.0 em todas as classes;
-- matriz de confusão totalmente diagonal.
-
-## Interpretação das curvas
-
-As curvas de treino e validação convergem rapidamente para valores de accuracy próximos de 100%.
-Não existe uma separação persistente entre a accuracy de treino e a accuracy de validação.
-
-O training loss e o validation loss diminuem para valores muito baixos. Apesar de pequenas oscilações pontuais no validation loss, não existe uma tendência sustentada de aumento enquanto o training loss continua a diminuir.
-
-O padrão clássico de overfitting seria o training loss continuar a diminuir enquanto o validation loss aumenta e a validation accuracy estabiliza ou diminui. Esse padrão não é observado de forma persistente.
-
-## Limitação da conclusão
-
-A accuracy perfeita deve ser interpretada com prudência. As imagens de treino, validação e teste provêm da mesma fonte e podem partilhar estilo, cores, fundos, enquadramentos e condições de iluminação.
-
-Os resultados demonstram excelente desempenho dentro da distribuição do dataset, mas não garantem automaticamente igual desempenho em imagens externas.
-
-## Validação futura recomendada
-
-- setas desenhadas manualmente;
-- imagens adquiridas por outra câmara;
-- fundos e condições de iluminação diferentes;
-- rotações e escalas mais extremas;
-- ruído, desfocagem e oclusão parcial;
-- estilos e cores ausentes do treino.
-
-## Conclusão
-
-Os resultados disponíveis não mostram evidência clara do padrão clássico de overfitting. O modelo generaliza corretamente para o conjunto de teste utilizado, mas a conclusão deve ser limitada ao domínio do dataset até existir validação com dados externos.
-
-### Evidencia da interface web
-
-O vídeo final demonstra conjuntamente a página web, o Groot2 e o Turtlesim:
+A pasta:
 
 ```text
-../final_validation/final_integrated_demo.mp4
+evidence/final_validation/
 ```
 
-Os comandos `SQUARE`, `CIRCLE` e `REGULAR_POLYGON` são publicados diretamente em `/vision/command`. As setas passam por `canvas_bridge` e pela CNN.
+contém:
 
-### Evidencia e utilizacao do Groot2
+- vídeo final integrado;
+- resultados dos testes;
+- validação final do sistema;
+- evidências de funcionamento dos componentes.
 
-- Árvore: `MainTree`.
-- Editor: `ros2_ws/src/tsb_bt_core/behavior_trees/tree.xml`.
-- Monitor: `localhost:1667`.
-- O Monitor é apenas de leitura.
-- Depois de guardar o XML, reiniciar o `bt_executor`.
+## Estado Final
 
-A subárvore `DrawRegularPolygon` contém `CalculateTurnDuration`, `RepeatPolygonSides`, `PolygonMove` e `PolygonTurn`.
-
-A evidência atual está no vídeo integrado:
-
-```text
-../final_validation/final_integrated_demo.mp4
-```
-<!-- CONSOLIDATED_EVIDENCE_END -->
+- CNN integrada em ROS 2
+- Behavior Tree funcional
+- Interface web operacional
+- Groot2 configurado
+- Integração completa validada
+- Demonstração final disponível em evidências
