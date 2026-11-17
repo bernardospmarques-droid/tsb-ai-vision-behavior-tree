@@ -94,29 +94,11 @@ O launch inicia:
 - turtlesim_node
 - vision_node
 - bt_executor
+- rosbridge
+- canvas bridge
+- servidor web
 
-### Interface Web
-
-Iniciar o rosbridge:
-
-```bash
-ros2 launch rosbridge_server rosbridge_websocket_launch.xml
-```
-
-Iniciar o canvas bridge:
-
-```bash
-ros2 run tsb_cv_brain canvas_bridge
-```
-
-Iniciar o servidor web:
-
-```bash
-cd web
-python3 -m http.server 8000
-```
-
-Abrir:
+Para vizualizar o servidor abrir:
 
 ```text
 http://localhost:8000
