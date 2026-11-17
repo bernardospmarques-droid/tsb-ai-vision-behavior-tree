@@ -2,7 +2,7 @@
 <root BTCPP_format="4" main_tree_to_execute="MainTree">
   <BehaviorTree ID="MainTree">
     <Sequence name="ReceiveAndExecute">
-      <Script name="InitializeExecutionState" code="command_received := false; execution_result := 'WAITING'; command_stage := 'START'; movement_running := false; system_valid := true; objective_already_met := false; movement_running := false; system_valid := true; objective_already_met := false; command_stage := 'START'; movement_running := false; system_valid := true; objective_already_met := false; movement_running := false; system_valid := true; objective_already_met := false" />
+      <Script name="InitializeExecutionState" code="command_received := false; execution_result := 'WAITING'; command_stage := 'START'; movement_running := false; system_valid := true; objective_already_met := false" />
       <GetVisionCommand name="GetCommand"
         command="{command}"
         _onSuccess="command_received = true"

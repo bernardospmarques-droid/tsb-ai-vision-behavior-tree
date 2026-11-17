@@ -71,7 +71,7 @@ def generate_launch_description():
 
         ExecuteProcess(
             cmd=['python3', '-m', 'http.server', '8000'],
-            cwd=os.path.expanduser('~/tsb_project_clean/web'),
+            cwd=str(Path(__file__).resolve().parents[5] / 'web'),
             output='screen'
         ),
 
