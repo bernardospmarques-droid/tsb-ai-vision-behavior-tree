@@ -4,7 +4,7 @@ import os
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
+from launch.actions import DeclareLaunchArgument, ExecuteProcess
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
@@ -41,6 +41,13 @@ def generate_launch_description():
         ),
         Node(
             package='tsb_cv_brain',
+            executable='canvas_bridge',
+            name='canvas_bridge',
+            output='screen',
+        ),
+
+        Node(
+            package='tsb_cv_brain',
             executable='vision_node',
             name='vision_node',
             output='screen',
@@ -50,6 +57,24 @@ def generate_launch_description():
                     minimum_confidence, value_type=float),
             }],
         ),
+
+        ExecuteProcess(
+            cmd=[
+                'ros2',
+                'launch',
+                'rosbridge_server',
+                'rosbridge_websocket_launch.xml'
+            ],
+            output='screen'
+        ),
+
+
+        ExecuteProcess(
+            cmd=['python3', '-m', 'http.server', '8000'],
+            cwd=os.path.expanduser('~/tsb_project_clean/web'),
+            output='screen'
+        ),
+
         Node(
             package='tsb_bt_core',
             executable='bt_executor',

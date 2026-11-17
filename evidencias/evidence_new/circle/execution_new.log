@@ -1,0 +1,5 @@
+[INFO] [1794884727.339874138] [bt_executor]: Loading behavior tree: /home/bernardo/tsb_project_clean/install/tsb_bt_core/share/tsb_bt_core/behavior_trees/tree.xml
+[INFO] [1794884794.621737692] [bt_executor]: [GetCommand] Command written to blackboard: CIRCLE
+[INFO] [1794884794.621928262] [bt_executor]: [DrawFullCircle] Circular movement started: linear=2.00, angular=1.50, duration=4.189, approximate radius=1.33
+[INFO] [1794884798.812157122] [bt_executor]: [DrawFullCircle] Circular movement completed
+[INFO] [1794884798.812708095] [bt_executor]: Tree finished with status: SUCCESS

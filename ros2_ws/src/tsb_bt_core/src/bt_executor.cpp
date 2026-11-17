@@ -94,7 +94,13 @@ factory.registerNodeType<tsb_bt_core::CommandMemory>(
       BT::toStr(status).c_str());
 
     tree.haltTree();
-    break;
+
+    if (run_once) {
+      break;
+    }
+
+    tree = factory.createTreeFromFile(tree_file);
+    continue;
   }
 
   if (run_once && status != BT::NodeStatus::RUNNING) {

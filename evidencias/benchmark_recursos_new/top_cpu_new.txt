@@ -1,0 +1,20 @@
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+bernardo  246266  4.8  3.7 2057344 294260 pts/3  Sl   03:30   0:05 /home/bernardo/tsb_project_clean/.venv/bin/python /home/bernardo/tsb_project_clean/ros2_ws/src/tsb_cv_brain/tsb_cv_brain/vision_node.py --ros-args -p model_path:=/home/bernardo/tsb_project_clean/training/weights/arrow_cnn_best.pth -p minimum_confidence:=0.75
+bernardo  246210  3.7  1.3 1165028 108000 pts/3  Sl   03:30   0:04 /opt/ros/jazzy/lib/turtlesim/turtlesim_node
+bernardo  246237  2.2  0.4 994844 34240 pts/3    Sl   03:30   0:02 /home/bernardo/tsb_project_clean/ros2_ws/install/tsb_bt_core/lib/tsb_bt_core/bt_executor
+bernardo  246342  0.9  1.0 888208 79804 pts/3    Sl   03:31   0:00 python3 /opt/ros/jazzy/lib/rosapi/rosapi_node --ros-args -r __node:=rosapi -r __ns:=/ --params-file /tmp/launch_params_3q8k8_rs --params-file /tmp/launch_params_3s7c8rol --params-file /tmp/launch_params_m8uzehu6 --params-file /tmp/launch_params_i2prjsed
+bernardo  246341  0.9  1.0 1115764 86528 pts/3   Sl   03:31   0:00 python3 /opt/ros/jazzy/lib/rosbridge_server/rosbridge_websocket --ros-args -r __node:=rosbridge_websocket -r __ns:=/ --params-file /tmp/launch_params_jif0kx23 --params-file /tmp/launch_params_3usksxkm --params-file /tmp/launch_params_7fo6u15g --params-file /tmp/launch_params_5kcf8uqp --params-file /tmp/launch_params_uqu7m1mi --params-file /tmp/launch_params_1o_15b3r --params-file /tmp/launch_params_bdm7rox8 --params-file /tmp/launch_params_ey0t787j --params-file /tmp/launch_params_u816xyf1 --params-file /tmp/launch_params_7k4bauew --params-file /tmp/launch_params_yyuf8ypu --params-file /tmp/launch_params_dptk8446 --params-file /tmp/launch_params_lx84hum4 --params-file /tmp/launch_params_9k_42vln --params-file /tmp/launch_params_oauxdkr6 --params-file /tmp/launch_params_g6eu8dxk --params-file /tmp/launch_params_iu9y6f5r --params-file /tmp/launch_params_7dtf9ydv
+bernardo  246309  0.9  0.9 885356 75196 pts/3    Sl   03:30   0:00 /home/bernardo/tsb_project_clean/.venv/bin/python /home/bernardo/tsb_project_clean/ros2_ws/src/tsb_cv_brain/tsb_cv_brain/canvas_bridge.py --ros-args -p canvas_topic:=/vision/canvas_png -p image_topic:=/vision/image
+bernardo  246160  0.6  0.8 877744 70092 pts/3    Sl   03:30   0:00 /usr/bin/python3 -c from ros2cli.daemon.daemonize import main; main() --name ros2-daemon --ros-domain-id 0 --rmw-implementation rmw_fastrtps_cpp
+bernardo  246337  0.5  0.5 201256 42080 pts/3    Sl   03:31   0:00 /usr/bin/python3 /opt/ros/jazzy/bin/ros2 launch rosbridge_server rosbridge_websocket_launch.xml
+bernardo  246233  0.3  0.3 186460 29440 pts/3    Sl   03:30   0:00 /usr/bin/python3 /opt/ros/jazzy/bin/ros2 run tsb_bt_core bt_executor
+bernardo  246206  0.2  0.3 186584 29440 pts/3    Sl   03:30   0:00 /usr/bin/python3 /opt/ros/jazzy/bin/ros2 run turtlesim turtlesim_node
+bernardo  246387  0.0  0.2 178120 20480 pts/3    Sl   03:31   0:00 python3 -m http.server 8000
+bernardo     406  0.0  0.3 407872 26240 ?        Ssl  Nov16   1:03 /opt/paloaltonetworks/globalprotect/PanGPA start
+root         242  0.0  0.3 777356 28756 ?        Ssl  Nov16   1:01 /opt/paloaltonetworks/globalprotect/PanGPS
+root          88  0.0  0.0  25876  6240 ?        Ss   Nov16   0:21 /usr/lib/systemd/systemd-udevd
+root      244398  0.0  0.1 1830360 12800 ?       Ssl  03:23   0:00 /usr/libexec/wsl-pro-service
+root          39  0.0  0.2  50440 16320 ?        S<s  Nov16   0:09 /usr/lib/systemd/systemd-journald
+root           1  0.0  0.1  22324 12116 ?        Ss   Nov16   0:08 /sbin/init
+bernardo  119683  0.0  0.0   9512  5760 pts/3    Ss   Nov16   0:01 -bash
+systemd+     149  0.0  0.0  91060  7520 ?        Ssl  Nov16   0:04 /usr/lib/systemd/systemd-timesyncd

@@ -1,0 +1,19 @@
+[INFO] [1794884441.183863696] [bt_executor]: Loading behavior tree: /home/bernardo/tsb_project_clean/install/tsb_bt_core/share/tsb_bt_core/behavior_trees/tree.xml
+[INFO] [1794884447.100584295] [bt_executor]: [GetCommand] Command written to blackboard: SQUARE
+[INFO] [1794884447.100787419] [bt_executor]: [PolygonMove] Command UP: linear.x=2.00 angular.z=0.00 duration=1.50
+[INFO] [1794884448.610591115] [bt_executor]: [PolygonMove] Movement completed
+[INFO] [1794884448.610689632] [bt_executor]: [PolygonTurn] Command LEFT: linear.x=0.00 angular.z=1.50 duration=1.05
+[INFO] [1794884449.660905003] [bt_executor]: [PolygonTurn] Movement completed
+[INFO] [1794884449.661042598] [bt_executor]: [PolygonMove] Command UP: linear.x=2.00 angular.z=0.00 duration=1.50
+[INFO] [1794884451.170547362] [bt_executor]: [PolygonMove] Movement completed
+[INFO] [1794884451.170644840] [bt_executor]: [PolygonTurn] Command LEFT: linear.x=0.00 angular.z=1.50 duration=1.05
+[INFO] [1794884452.220537973] [bt_executor]: [PolygonTurn] Movement completed
+[INFO] [1794884452.220634155] [bt_executor]: [PolygonMove] Command UP: linear.x=2.00 angular.z=0.00 duration=1.50
+[INFO] [1794884453.730548611] [bt_executor]: [PolygonMove] Movement completed
+[INFO] [1794884453.730648720] [bt_executor]: [PolygonTurn] Command LEFT: linear.x=0.00 angular.z=1.50 duration=1.05
+[INFO] [1794884454.780654338] [bt_executor]: [PolygonTurn] Movement completed
+[INFO] [1794884454.780770871] [bt_executor]: [PolygonMove] Command UP: linear.x=2.00 angular.z=0.00 duration=1.50
+[INFO] [1794884456.290526243] [bt_executor]: [PolygonMove] Movement completed
+[INFO] [1794884456.290617668] [bt_executor]: [PolygonTurn] Command LEFT: linear.x=0.00 angular.z=1.50 duration=1.05
+[INFO] [1794884457.340565311] [bt_executor]: [PolygonTurn] Movement completed
+[INFO] [1794884457.340650672] [bt_executor]: Tree finished with status: SUCCESS

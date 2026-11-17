@@ -18,7 +18,7 @@ echo "[INFO] Executa setas e formas na pagina web."
 echo "[INFO] No fim, regressa aqui e carrega Ctrl+C."
 
 ros2 bag record \
-  --topics \
+  \
   --output "$BAG" \
   /vision/canvas_png \
   /vision/image \

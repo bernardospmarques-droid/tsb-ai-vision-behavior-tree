@@ -1,0 +1,20 @@
+{
+  "device": "cpu",
+  "classes": [
+    "Down",
+    "Left",
+    "Right",
+    "Up"
+  ],
+  "class_to_index": {
+    "Down": 0,
+    "Left": 1,
+    "Right": 2,
+    "Up": 3
+  },
+  "epochs_completed": 30,
+  "best_validation_loss": 1.413085830831378e-05,
+  "best_validation_accuracy": 1.0,
+  "elapsed_seconds": 539.7028064727783,
+  "best_model": "/home/bernardo/tsb_project_clean/training/weights/arrow_cnn_best.pth"
+}
