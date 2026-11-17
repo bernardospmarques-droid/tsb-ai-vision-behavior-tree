@@ -9,7 +9,7 @@
         _onFailure="execution_result = 'COMMAND_FAILURE'"
         _post="command_stage = 'COMMAND_RECEIVED'" />
       <CommandMemory command="{command}" repeat_command="{repeat_command}" last_command="{last_command}" system_valid="{system_valid}" />
-      <Switch6 name="SelectBehavior_REGULAR_POLYGON_fallback" _while="command_received && system_valid" _failureIf="!system_valid" _onSuccess="execution_result = 'SUCCESS'"
+      <Switch6 name="SelectBehavior_REGULAR_POLYGON_fallback" _while="command_received &amp;&amp; system_valid" _failureIf="!system_valid" _onSuccess="execution_result = 'SUCCESS'"
         _onFailure="execution_result = 'FAILURE'"
         _post="command_stage = 'MOVEMENT_FINISHED'" variable="{command}" case_1="UP" case_2="DOWN" case_3="LEFT" case_4="RIGHT" case_5="SQUARE" case_6="CIRCLE">
         <MoveTurtle name="MoveForward" command="UP" linear_speed="2.0" angular_speed="1.5" duration="0.8" />
