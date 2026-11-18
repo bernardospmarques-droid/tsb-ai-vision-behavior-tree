@@ -80,7 +80,10 @@ factory.registerNodeType<tsb_bt_core::CommandMemory>(
   }
 
   // Live monitoring: open Groot2 -> "Monitor" tab -> connect to localhost:<groot_port>
-  BT::Groot2Publisher groot_publisher(tree, static_cast<unsigned>(groot_port));
+  auto groot_publisher =
+    std::make_unique<BT::Groot2Publisher>(
+      tree,
+      static_cast<unsigned>(groot_port));
 
   // ------------------------------------------------------------ execution loop
   rclcpp::Rate rate(tick_rate_hz);
@@ -99,7 +102,18 @@ factory.registerNodeType<tsb_bt_core::CommandMemory>(
       break;
     }
 
+    // O publisher deve ser destruído antes da árvore monitorizada.
+    groot_publisher.reset();
+
+    // Recarrega a Behavior Tree para o comando seguinte.
     tree = factory.createTreeFromFile(tree_file);
+
+    // Associa o Groot2Publisher à nova instância da árvore.
+    groot_publisher =
+      std::make_unique<BT::Groot2Publisher>(
+        tree,
+        static_cast<unsigned>(groot_port));
+
     continue;
   }
 
